@@ -10,7 +10,15 @@ class SSD
 public:
   SSD(bool i_common_anode, std::uint8_t i_serial_data_pin,
       std::uint8_t i_clock_pin,
-      std::uint8_t i_clear_pin) : m_common_anode(i_common_anode), m_serial_data_pin(i_serial_data_pin), m_clock_pin(i_clock_pin), m_clear_pin(i_clear_pin) {}
+      std::uint8_t i_clear_pin) : m_common_anode(i_common_anode),
+                                  m_serial_data_pin(i_serial_data_pin),
+                                  m_clock_pin(i_clock_pin),
+                                  m_clear_pin(i_clear_pin),
+                                  m_serial_data_pin_bitmask(1 << i_serial_data_pin),
+                                  m_clock_pin_bitmask(1 << i_clock_pin),
+                                  m_clear_pin_bitmask(1 << i_clear_pin)
+  {
+  }
 
   void Init()
   {
@@ -18,17 +26,18 @@ public:
     pinMode(m_clock_pin, OUTPUT);
     pinMode(m_clear_pin, OUTPUT);
 
-    digitalWrite(m_serial_data_pin, LOW);
-    digitalWrite(G_SHR_CLOCK_PIN, LOW);
+    GPIO.out_w1tc = m_serial_data_pin_bitmask;
+    GPIO.out_w1tc = m_clock_pin_bitmask;
 
     Clear();
   }
 
   void Clear()
   {
-    digitalWrite(m_clear_pin, LOW);
+    GPIO.out_w1tc = m_clear_pin_bitmask;
     delay(1);
-    digitalWrite(m_clear_pin, HIGH);
+    GPIO.out_w1ts = m_clear_pin_bitmask;
+
     if (!m_common_anode)
       return;
     SendBits(0b11111111);
@@ -51,18 +60,25 @@ private:
   {
     for (std::uint8_t i = 0; i < 8; ++i)
     {
-      digitalWrite(m_serial_data_pin, i_bits & 0b00000001);
-      digitalWrite(m_clock_pin, LOW);
-      digitalWrite(m_clock_pin, HIGH);
+      if (i_bits & 0b00000001)
+        GPIO.out_w1ts = m_serial_data_pin_bitmask;
+      else
+        GPIO.out_w1tc = m_serial_data_pin_bitmask;
+
+      GPIO.out_w1tc = m_clock_pin_bitmask;
+      GPIO.out_w1ts = m_clock_pin_bitmask;
       i_bits >>= 1;
     }
-    digitalWrite(m_serial_data_pin, LOW);
+    GPIO.out_w1tc = m_serial_data_pin_bitmask;
   }
 
   const bool m_common_anode;
   const std::uint8_t m_serial_data_pin;
   const std::uint8_t m_clock_pin;
   const std::uint8_t m_clear_pin;
+  const std::uint32_t m_serial_data_pin_bitmask;
+  const std::uint32_t m_clock_pin_bitmask;
+  const std::uint32_t m_clear_pin_bitmask;
   static const std::array<std::uint8_t, 10> s_digits_bitmap;
 };
 
@@ -86,13 +102,25 @@ void setup()
   Serial.begin(38400);
   ssd.Init();
   ssd.Clear();
+  pinMode(G_BUTTON_PIN, INPUT_PULLDOWN);
 }
 
 void loop()
 {
-  for (std::uint8_t i = 0; i < 10; ++i)
+  static uint8_t counter = 0;
+  static bool button_released = true;
+  if (digitalRead(G_BUTTON_PIN))
   {
-    ssd.put(i);
-    delay(1000);
+    delay(20);
+    if (button_released && digitalRead(G_BUTTON_PIN))
+    {
+      ++counter;
+      ssd.put(counter % 10);
+    }
+    button_released = false;
+  }
+  else
+  {
+    button_released = true;
   }
 }
