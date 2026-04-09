@@ -38,7 +38,7 @@ void ButtonDebounce::Update()
 {
     m_last_update_timestamp = millis();
     const bool raw = GetMomentumButtonState();
-    m_prev_state = m_current_state;
+    // Serial.println(raw);
     if (m_in_debounce)
     {
         if (m_last_update_timestamp - m_debounce_start_timestamp < m_debounce_period)
@@ -48,8 +48,9 @@ void ButtonDebounce::Update()
 
         if (raw != m_current_state)
         {
-            m_prev_state = m_current_state;
+            // 2. Only m_current_state changes here
             m_current_state = raw;
+            m_changed = true;
             m_disabled = false;
             if (m_current_state)
                 m_press_timestamp = m_last_update_timestamp;
@@ -62,5 +63,6 @@ void ButtonDebounce::Update()
             m_debounce_start_timestamp = m_last_update_timestamp;
             m_in_debounce = true;
         }
+        m_changed = false;
     }
 }

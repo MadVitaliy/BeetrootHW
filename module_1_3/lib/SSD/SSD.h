@@ -13,7 +13,7 @@ public:
       std::uint8_t i_clear_pin) ;
   void Init();
   void Clear();
-  void put(std::uint8_t i_digit);
+  void Put(std::uint8_t i_digit);
   
 private:
   void SendBits(std::uint8_t i_bits);

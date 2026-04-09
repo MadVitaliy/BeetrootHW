@@ -9,13 +9,12 @@ public:
                                                                                       m_pulled_down(i_pulled_down),
                                                                                       m_use_built_in_res(i_use_built_in_res)
     {
-        m_prev_state = m_current_state = !m_pulled_down;
     }
 
     void Init();
 
-    bool WasPressed() const { return m_current_state && !m_prev_state; }
-    bool WasReleased() const    {return !m_current_state && m_prev_state;}
+    bool WasPressed() const { return m_current_state && m_changed; }
+    bool WasReleased() const    {return !m_current_state && m_changed;}
 
     bool IsPressed() const { return m_current_state; }
     bool IsPressedFor(uint16_t i_period, bool i_cancel = false);
@@ -29,8 +28,8 @@ private:
     const bool m_pulled_down;
     const bool m_use_built_in_res;
 
-    bool m_current_state;
-    bool m_prev_state;
+    bool m_current_state = false;
+    bool m_changed = false;
     bool m_in_debounce = false;
     bool m_disabled = false;
     uint32_t m_debounce_start_timestamp;

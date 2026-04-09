@@ -52,7 +52,7 @@ void SSD::Clear()
     SendBits(0b11111111);
 }
 
-void SSD::put(std::uint8_t i_digit)
+void SSD::Put(std::uint8_t i_digit)
 {
     if (i_digit >= s_digits_bitmap.size())
         return;

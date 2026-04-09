@@ -18,28 +18,18 @@ void setup()
 void loop()
 {
   static uint8_t counter = 0;
- static uint32_t last_update_timestamp = millis();
+  static uint32_t last_update_timestamp = millis();
   button.Update();
   if (button.WasPressed())
   {
     ++counter;
-    ssd.put(counter % 10);
+    ssd.Put(counter%10);
     Serial.println("Pressed");
   }
-  if (button.WasReleased())
+  if (button.IsPressedFor(3000))
   {
-    --counter;
-    ssd.put(counter % 10);
-    Serial.println("Released");
+    ssd.Clear();
+    Serial.println("Long press");
   }
-  if (button.IsPressedFor(1500))
-  {
-    const uint32_t current_timestamp = millis();
-    if (current_timestamp - last_update_timestamp > 1000){
-      last_update_timestamp = current_timestamp;
-      ++counter;
-      ssd.put(counter % 10);
-      Serial.println("Pressed for");
-    }
-  }
+  Serial.println(counter);
 }
