@@ -44,7 +44,7 @@ void SSD::Init()
 void SSD::Clear()
 {
     GPIO.out_w1tc = m_clear_pin_bitmask;
-    delay(1);
+    //delay(1);
     GPIO.out_w1ts = m_clear_pin_bitmask;
 
     if (!m_common_anode)
