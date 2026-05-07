@@ -6,35 +6,24 @@ constexpr uint8_t LED3_PIN = 6;
 constexpr uint16_t LED1_PIN_BLINK_HALF_PERIOD = 200 / 2;
 constexpr uint16_t LED2_PIN_BLINK_HALF_PERIOD = 500 / 2;
 constexpr uint16_t LED3_PIN_BLINK_HALF_PERIOD = 1000 / 2;
-volatile bool G_LED1_STATE = false;
-volatile bool G_LED2_STATE = false;
-volatile bool G_LED3_STATE = false;
 
 TimerHandle_t GH_LED1_TIMER;
 TimerHandle_t GH_LED2_TIMER;
 TimerHandle_t GH_LED3_TIMER;
 
-constexpr uint16_t TIMERS_PRESCALER = 40000; // Tacking clock speed of 80MHz, it gives +1 every 0.5 milli seconds.
-constexpr uint16_t LED1_TIMER_TRIGGER_VALUE = 2 * LED1_PIN_BLINK_HALF_PERIOD;
-constexpr uint16_t LED2_TIMER_TRIGGER_VALUE = 2 * LED2_PIN_BLINK_HALF_PERIOD;
-constexpr uint16_t LED3_TIMER_TRIGGER_VALUE = 2 * LED3_PIN_BLINK_HALF_PERIOD;
-
 IRAM_ATTR void Led1Blinker(TimerHandle_t xTimer)
 {
-  digitalWrite(LED1_PIN, G_LED1_STATE ? HIGH : LOW);
-  G_LED1_STATE = !G_LED1_STATE;
+  GPIO.out ^= 1 << LED1_PIN;
 }
 
 IRAM_ATTR void Led2Blinker(TimerHandle_t xTimer)
 {
-  digitalWrite(LED2_PIN, G_LED2_STATE ? HIGH : LOW);
-  G_LED2_STATE = !G_LED2_STATE;
+  GPIO.out ^= 1 << LED2_PIN;
 }
 
 IRAM_ATTR void Led3Blinker(TimerHandle_t xTimer)
 {
-  digitalWrite(LED3_PIN, G_LED3_STATE ? HIGH : LOW);
-  G_LED3_STATE = !G_LED3_STATE;
+  GPIO.out ^= 1 << LED3_PIN;
 }
 
 void setup()
@@ -43,6 +32,9 @@ void setup()
   pinMode(LED1_PIN, OUTPUT);
   pinMode(LED2_PIN, OUTPUT);
   pinMode(LED3_PIN, OUTPUT);
+  GPIO.out_w1tc = 1 << LED1_PIN;
+  GPIO.out_w1tc = 1 << LED2_PIN;
+  GPIO.out_w1tc = 1 << LED3_PIN;
 
   GH_LED1_TIMER = xTimerCreate(
       "BlinkLed1",                                     // Timer name
@@ -74,8 +66,8 @@ void setup()
   }
 
   xTimerStart(GH_LED1_TIMER, 0); // Start timer immediately
-  xTimerStart(GH_LED2_TIMER, 0); // Start timer immediately
-  xTimerStart(GH_LED3_TIMER, 0); // Start timer immediately
+  xTimerStart(GH_LED2_TIMER, 0);
+  xTimerStart(GH_LED3_TIMER, 0);
 }
 
 void loop()
