@@ -7,13 +7,10 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 
-// Settings
-constexpr uint32_t SLEEP_TIME_MS = 1000;
-
-#define ADC_PIN ADC_CHANNEL_5        // Channel 7 - Check ESP32 Pinout for the GPIO Number
-#define ADC_UNIT ADC_UNIT_1          // ADC1
-#define ADC_BITWIDTH ADC_BITWIDTH_12 // 12-bit resolution (0-4095)
-#define ADC_ATTEN ADC_ATTEN_DB_12    // ~3.3V full-scale voltage
+constexpr adc_channel_t ADC_PIN = ADC_CHANNEL_5; // on pin 6
+constexpr adc_unit_t ADC_UNIT = ADC_UNIT_1;
+constexpr adc_bitwidth_t ADC_BITWIDTH = ADC_BITWIDTH_12; // 12-bit resolution (0-4095)
+constexpr adc_atten_t ADC_ATTEN = ADC_ATTEN_DB_12;       // ~3.3V full-scale voltage
 
 constexpr gpio_num_t G_LED_PIN = GPIO_NUM_4;
 constexpr ledc_mode_t G_PWM_MODE = LEDC_LOW_SPEED_MODE;
@@ -124,7 +121,7 @@ extern "C" void app_main(void)
         NULL,                  // Parameters
         1,                     // Priority
         &G_POTENTIOMETER_TASK, // Priority (the lowwest)
-        0                      // Core 0
+        0                      // Core 1
     );
 
     xTaskCreatePinnedToCore(
@@ -134,6 +131,6 @@ extern "C" void app_main(void)
         NULL,        // Parameters
         1,           // Priority (the lowwest)
         &G_LED_TASK, // Task handle
-        1            // Core 1
+        0            // Core 1
     );
 }
