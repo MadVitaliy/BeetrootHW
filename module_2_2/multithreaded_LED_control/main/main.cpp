@@ -104,7 +104,6 @@ void LedTask(void *ip_parameters)
             pwm_set_duty(duty);
             ESP_LOGI("ADC", "adc=%d duty=%lu", adc_sample, duty);
         }
-
     }
 }
 
@@ -125,7 +124,7 @@ extern "C" void app_main(void)
         NULL,                  // Parameters
         1,                     // Priority
         &G_POTENTIOMETER_TASK, // Priority (the lowwest)
-        0                      // Core 1
+        0                      // Core 0
     );
 
     xTaskCreatePinnedToCore(
@@ -135,6 +134,6 @@ extern "C" void app_main(void)
         NULL,        // Parameters
         1,           // Priority (the lowwest)
         &G_LED_TASK, // Task handle
-        0            // Core 1
+        1            // Core 1
     );
 }
