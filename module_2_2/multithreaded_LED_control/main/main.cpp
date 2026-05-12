@@ -25,6 +25,12 @@ constexpr uint32_t G_PWM_MIN_VALUE = G_PWM_MAX_VALUE * 0.3; //
 constexpr uint32_t G_PWM_FREQ = 5000;
 constexpr int G_HPOINT = 0;
 
+TaskHandle_t G_LED_TASK = NULL;
+TaskHandle_t G_POTENTIOMETER_TASK = NULL;
+
+QueueHandle_t G_ADC_VALUES_QUEUE = NULL;
+constexpr uint8_t QUEUE_SIZE = 10;
+
 void pwm_init(void)
 {
     ledc_timer_config_t timer = {};
@@ -58,9 +64,9 @@ void pwm_set_duty(uint32_t duty)
     ledc_update_duty(G_PWM_MODE, G_PWM_CHANNEL);
 }
 
-extern "C" void app_main(void)
+void PotentiometerTask(void *ip_parameters)
 {
-    adc_oneshot_unit_handle_t adc_handle;
+    static adc_oneshot_unit_handle_t adc_handle;
 
     adc_oneshot_unit_init_cfg_t init_config = {
         .unit_id = ADC_UNIT,
@@ -75,21 +81,60 @@ extern "C" void app_main(void)
 
     ESP_ERROR_CHECK(adc_oneshot_config_channel(adc_handle, ADC_PIN, &config));
 
+    static int adc_value = 0;
+    for (;;)
+    {
+        ESP_ERROR_CHECK(adc_oneshot_read(adc_handle, ADC_PIN, &adc_value));
+        xQueueSend(G_ADC_VALUES_QUEUE, &adc_value, portMAX_DELAY); // Send to queue
+        vTaskDelay(pdMS_TO_TICKS(10));
+    }
+}
+
+void LedTask(void *ip_parameters)
+{
     pwm_init();
     pwm_channel_init();
 
-    while (1)
+    static int adc_sample = 0;
+    for (;;)
     {
-        int adc_value;
+        if (xQueueReceive(G_ADC_VALUES_QUEUE, &adc_sample, portMAX_DELAY))
+        {
+            const uint32_t duty = (adc_sample * G_PWM_MAX_VALUE) / 4095;
+            pwm_set_duty(duty);
+            ESP_LOGI("ADC", "adc=%d duty=%lu", adc_sample, duty);
+        }
 
-        ESP_ERROR_CHECK(adc_oneshot_read(adc_handle, ADC_PIN, &adc_value));
-
-        uint32_t duty = (adc_value * G_PWM_MAX_VALUE) / 4095;
-
-        pwm_set_duty(duty);
-
-        ESP_LOGI("ADC", "adc=%d duty=%lu", adc_value, duty);
-
-        vTaskDelay(pdMS_TO_TICKS(10));
     }
+}
+
+extern "C" void app_main(void)
+{
+    G_ADC_VALUES_QUEUE = xQueueCreate(QUEUE_SIZE, sizeof(int));
+    if (G_ADC_VALUES_QUEUE == NULL)
+    {
+        ESP_LOGI("Init", "Failed to create queue!");
+        while (1)
+            ;
+    }
+
+    xTaskCreatePinnedToCore(
+        PotentiometerTask,     // Task function
+        "PotentiometerTask",   // Task name
+        10000,                 // Stack size (bytes)
+        NULL,                  // Parameters
+        1,                     // Priority
+        &G_POTENTIOMETER_TASK, // Priority (the lowwest)
+        0                      // Core 1
+    );
+
+    xTaskCreatePinnedToCore(
+        LedTask,     // Task function
+        "LedTask",   // Task name
+        10000,       // Stack size (bytes)
+        NULL,        // Parameters
+        1,           // Priority (the lowwest)
+        &G_LED_TASK, // Task handle
+        0            // Core 1
+    );
 }
