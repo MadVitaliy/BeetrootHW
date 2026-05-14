@@ -132,6 +132,6 @@ extern "C" void app_main(void)
         NULL,        // Parameters
         1,           // Priority (the lowwest)
         &G_LED_TASK, // Task handle
-        0            // Core 1
+        1            // Core 1
     );
 }
