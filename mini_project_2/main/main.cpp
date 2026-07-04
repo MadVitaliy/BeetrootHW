@@ -20,12 +20,11 @@ constexpr uint8_t QUEUE_SIZE = 1;
 
 QueueHandle_t G_BUTTONS_QUEUE = nullptr;
 
-
 esp_timer_handle_t GH_DEBOUNCE_TIMER;
 TaskHandle_t GH_DISPLAY_TIME = nullptr;
 TaskHandle_t GH_DEBOUNCE_TASK = nullptr;
 
-#define DEBOUNCE_DELAY_US 200000ULL // Debounce delay in microseconds (200 ms)
+constexpr uint64_t G_DEBOUNCE_DELAY_US = 50000ULL; // Debounce delay in microseconds (50 ms)
 static volatile uint64_t last_isr_tick = 0;
 static volatile uint32_t counter = 0;
 
@@ -38,14 +37,14 @@ void DebounceTask(void *arg)
     while (true)
     {
         ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
-        esp_timer_start_once(GH_ONE_SHOT_TIMER, 20000);
+        esp_timer_start_once(GH_ONE_SHOT_TIMER, G_DEBOUNCE_DELAY_US);
     }
 }
 
-volatile int64_t G_CURRENT_TIMESTAMP = 0;
+volatile int64_t G_BUTTON_ISR_TIMESTAMP = 0;
 IRAM_ATTR void button_isr(void *arg)
 {
-    G_CURRENT_TIMESTAMP = esp_timer_get_time();
+    G_BUTTON_ISR_TIMESTAMP = esp_timer_get_time();
     gpio_intr_disable(G_BUTTON_PIN);
 
     BaseType_t higher_woken = pdFALSE;
@@ -63,12 +62,15 @@ SSD ssd(false, G_SHR_OUT_PIN, G_SHR_CLOCK_PIN, G_SHR_CLEAR_PIN);
 volatile bool G_IS_TIME_RUNNING = false;
 static void ButtonDebounce(void *arg)
 {
-    const int64_t time_since_isr = esp_timer_get_time() - G_CURRENT_TIMESTAMP;
+    static const char* TAG = "ButtonDebounce";
+    const int64_t time_since_isr = esp_timer_get_time() - G_BUTTON_ISR_TIMESTAMP;
     const int level = gpio_get_level(G_BUTTON_PIN);
+    ESP_LOGI(TAG, "One-shot timer triggered! Mills from button's ISR: %lld", time_since_isr);
     if (level != 0)
     {
         if (!G_IS_TIME_RUNNING)
         {
+            ESP_LOGI(TAG, "Start stopwatch");
             G_IS_TIME_RUNNING = true;
             vTaskResume(GH_DISPLAY_TIME);
         }
@@ -76,10 +78,13 @@ static void ButtonDebounce(void *arg)
         {
             G_IS_TIME_RUNNING = false;
             vTaskSuspend(GH_DISPLAY_TIME);
+            ESP_LOGI(TAG, "Stop stopwatch");
         }
-    } // else {ignore: must have been noise}.
+    } else {
+        //ignore: must have been noise
+        ESP_LOGI(TAG, "Debounced!");
+    }
     gpio_intr_enable(G_BUTTON_PIN);
-    ESP_LOGI("ButtonDebounce", "One-shot timer triggered! Mills from button's ISR: %lld", time_since_isr);
 }
 
 void DisplayTimer(void *ip_parameters)
@@ -87,10 +92,12 @@ void DisplayTimer(void *ip_parameters)
     while (true)
     {
         // TODO: read timer and convert to seconds.
-        static uint16_t dummy_time = 0;
-        ++dummy_time;
-        const uint8_t h = dummy_time / 100;
-        const uint8_t l = dummy_time % 100;
+        const uint64_t stopwatch_time = esp_timer_get_time() - G_BUTTON_ISR_TIMESTAMP;
+        const uint64_t stopwatch_time_ms = stopwatch_time / 1000u;
+        const uint64_t stopwatch_time_s = stopwatch_time_ms / 1000u;
+
+        const uint8_t h = stopwatch_time_s / 100;
+        const uint8_t l = stopwatch_time_s % 100;
         const uint8_t dec = l / 10;
         const uint8_t d = l % 10;
         ssd.Clear();
@@ -118,7 +125,7 @@ extern "C" void app_main(void)
     io_conf.intr_type = GPIO_INTR_POSEDGE;
     ESP_ERROR_CHECK(gpio_config(&io_conf));
 
-    G_BUTTONS_QUEUE = xQueueCreate(10, sizeof(uint32_t));
+
     gpio_install_isr_service(0);
     gpio_isr_handler_add(G_BUTTON_PIN, button_isr, NULL);
 
