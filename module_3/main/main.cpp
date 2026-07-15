@@ -72,43 +72,83 @@ static const int SERVO_PIN_2 = 16;
 #define SWEEP_VELOCITY_DEG_PER_SEC 45.0f // Sweep speed (same for both axes)
 #define SERVO_UPDATE_RATE_HZ 500.0f      // Control loop rate (Hz)
 
-static mcpwm_cmpr_handle_t rotation_comparator = NULL;
-static mcpwm_cmpr_handle_t elevation_comparator = NULL;
-
-static inline uint32_t angle_to_compare(float angle)
-{
-    // Map 0-180 degree range to pulse width
-    return (uint32_t)((angle - SERVO_PULSE_MIN_DEGREE) * (SERVO_MAX_PULSEWIDTH_US - SERVO_MIN_PULSEWIDTH_US) /
-                          (SERVO_PULSE_MAX_DEGREE - SERVO_PULSE_MIN_DEGREE) +
-                      SERVO_MIN_PULSEWIDTH_US);
-}
-
-static inline float map_rotation(float input_angle)
-{
-    // Map 0 to 180 input directly to 0 to 180 servo range (1:1 mapping)
-    float clamped = input_angle;
-    if (clamped < ROTATION_MIN_DEGREE)
-        clamped = ROTATION_MIN_DEGREE;
-    if (clamped > ROTATION_MAX_DEGREE)
-        clamped = ROTATION_MAX_DEGREE;
-
-    return clamped; // Direct 1:1 mapping
-}
-
-static inline float map_elevation(float input_angle)
-{
-    // Map 0 to 90 input range to 90 to 0 servo range (inverted)
-    // Input 0 → Servo 90, Input 30 → Servo 60, Input 90 → Servo 0
-    float clamped = input_angle;
-    if (clamped < ELEVATION_MIN_DEGREE)
-        clamped = ELEVATION_MIN_DEGREE;
-    if (clamped > ELEVATION_MAX_DEGREE)
-        clamped = ELEVATION_MAX_DEGREE;
-
-    return 90.0f - clamped; // Invert: 0→90, 90→0
-}
 
 constexpr uint32_t G_PWM_FREQ = 50; // 50Hz
+
+static const char *TAG2 = "mcpwm_servo";
+
+// Handles required by ESP-IDF v6.0
+static mcpwm_timer_handle_t     timer = NULL;
+static mcpwm_oper_handle_t      operator_handle = NULL;
+static mcpwm_cmpr_handle_t      comparator_1 = NULL;
+static mcpwm_cmpr_handle_t      comparator_2 = NULL;
+static mcpwm_gen_handle_t       generator_1 = NULL;
+static mcpwm_gen_handle_t       generator_2 = NULL;
+
+void mcpwm_servo_init(void)
+{
+    ESP_LOGI(TAG2, "Initializing MCPWM for ESP-IDF v6.0...");
+
+    // 1. Allocate the Timer
+    mcpwm_timer_config_t timer_config{};
+    timer_config.group_id = 0;
+    timer_config.clk_src = MCPWM_TIMER_CLK_SRC_DEFAULT;
+    timer_config.resolution_hz = 1000000; // 1MHz = 1 microsecond per tick
+    timer_config.count_mode = MCPWM_TIMER_COUNT_MODE_UP;
+    timer_config.period_ticks = 20000; // 20,000 ticks = 20ms (50Hz)
+
+    ESP_ERROR_CHECK(mcpwm_new_timer(&timer_config, &timer));
+
+    // 2. Allocate the Operator
+    mcpwm_operator_config_t operator_config{};
+    operator_config.group_id = 0; // Must match timer's group_id
+
+    ESP_ERROR_CHECK(mcpwm_new_operator(&operator_config, &operator_handle));
+
+    // Connect Operator to Timer
+    ESP_ERROR_CHECK(mcpwm_operator_connect_timer(operator_handle, timer));
+
+    // 3. Allocate Comparators (These translate raw microsecond values to events)
+    mcpwm_comparator_config_t compare_config{};
+    compare_config.flags.update_cmp_on_tez = true;   // Keep your default update event
+    compare_config.flags.update_cmp_on_tep = false;  // <--- Fixed: Added missing struct members
+    compare_config.flags.update_cmp_on_sync = false; // <--- Fixed: Added missing struct members
+
+    ESP_ERROR_CHECK(mcpwm_new_comparator(operator_handle, &compare_config, &comparator_1));
+    ESP_ERROR_CHECK(mcpwm_new_comparator(operator_handle, &compare_config, &comparator_2));
+
+    // 4. Allocate Generators (The physical outputs)
+    mcpwm_generator_config_t gen_config_1{};
+    gen_config_1.gen_gpio_num = SERVO_PIN_1;
+    mcpwm_generator_config_t gen_config_2{};
+    gen_config_2.gen_gpio_num = SERVO_PIN_2;
+
+    ESP_ERROR_CHECK(mcpwm_new_generator(operator_handle, &gen_config_1, &generator_1));
+    ESP_ERROR_CHECK(mcpwm_new_generator(operator_handle, &gen_config_2, &generator_2));
+
+    // Set default starting duty cycle (e.g., 1500us center point)
+    ESP_ERROR_CHECK(mcpwm_comparator_set_compare_value(comparator_1, 1500));
+    ESP_ERROR_CHECK(mcpwm_comparator_set_compare_value(comparator_2, 1500));
+
+    // 5. Configure Generator Actions
+    // Generator 1 (Pin 39): Go HIGH on Timer Zero, Go LOW on Comparator 1 Match
+    ESP_ERROR_CHECK(mcpwm_generator_set_action_on_timer_event(generator_1,
+                                                              MCPWM_GEN_TIMER_EVENT_ACTION(MCPWM_TIMER_DIRECTION_UP, MCPWM_TIMER_EVENT_EMPTY, MCPWM_GEN_ACTION_HIGH)));
+    ESP_ERROR_CHECK(mcpwm_generator_set_action_on_compare_event(generator_1,
+                                                                MCPWM_GEN_COMPARE_EVENT_ACTION(MCPWM_TIMER_DIRECTION_UP, comparator_1, MCPWM_GEN_ACTION_LOW)));
+
+    // Generator 2 (Pin 40): Go HIGH on Timer Zero, Go LOW on Comparator 2 Match
+    ESP_ERROR_CHECK(mcpwm_generator_set_action_on_timer_event(generator_2,
+                                                              MCPWM_GEN_TIMER_EVENT_ACTION(MCPWM_TIMER_DIRECTION_UP, MCPWM_TIMER_EVENT_EMPTY, MCPWM_GEN_ACTION_HIGH)));
+    ESP_ERROR_CHECK(mcpwm_generator_set_action_on_compare_event(generator_2,
+                                                                MCPWM_GEN_COMPARE_EVENT_ACTION(MCPWM_TIMER_DIRECTION_UP, comparator_2, MCPWM_GEN_ACTION_LOW)));
+
+    // 6. Enable and Start the Timer
+    ESP_ERROR_CHECK(mcpwm_timer_enable(timer));
+    ESP_ERROR_CHECK(mcpwm_timer_start_stop(timer, MCPWM_TIMER_START_NO_STOP));
+
+    ESP_LOGI(TAG2, "MCPWM successfully started.");
+}
 
 Filters::MovingAverage<8> filter;
 
@@ -132,84 +172,8 @@ extern "C" void app_main(void)
     G_JOYSTICK_LEFT.Init(adc1_handle);
     G_JOYSTICK_RIGHT.Init(adc1_handle);
 
-    // int raw_value = 0;
-    ESP_LOGI("", "Raw ADC Value, Calclulated Voltage, Calibrated Voltage");
-
-    ESP_LOGI(TAG, "Create timer and operator");
-    mcpwm_timer_config_t timer_config{};
-    timer_config.group_id = 0;
-    timer_config.clk_src = MCPWM_TIMER_CLK_SRC_DEFAULT;
-    timer_config.resolution_hz = SERVO_TIMEBASE_RESOLUTION_HZ;
-    timer_config.period_ticks = SERVO_TIMEBASE_PERIOD;
-    timer_config.count_mode = MCPWM_TIMER_COUNT_MODE_UP;
-    // timer_config.intr_priority = 1;
-    // timer_config.flags.allow_pd = 0;
-
-    mcpwm_timer_handle_t timer = NULL;
-    ESP_ERROR_CHECK(mcpwm_new_timer(&timer_config, &timer));
-
-    mcpwm_oper_handle_t oper = NULL;
-    mcpwm_operator_config_t operator_config{};
-    operator_config.group_id = 0; // operator must be in the same group to the timer
-
-    ESP_ERROR_CHECK(mcpwm_new_operator(&operator_config, &oper));
-
-    ESP_LOGI(TAG, "Connect timer and operator");
-    ESP_ERROR_CHECK(mcpwm_operator_connect_timer(oper, timer));
-
-    ESP_LOGI(TAG, "Create comparators and generators from the operator");
-    mcpwm_comparator_config_t comparator_config{};
-    comparator_config.flags.update_cmp_on_tez = true;   // Keep your default update event
-    comparator_config.flags.update_cmp_on_tep = false;  // <--- Fixed: Added missing struct members
-    comparator_config.flags.update_cmp_on_sync = false; // <--- Fixed: Added missing struct members
-
-    // Create comparator for rotation servo
-    ESP_ERROR_CHECK(mcpwm_new_comparator(oper, &comparator_config, &rotation_comparator));
-
-    // Create comparator for elevation servo
-    ESP_ERROR_CHECK(mcpwm_new_comparator(oper, &comparator_config, &elevation_comparator));
-
-    // Create generator for rotation servo
-    mcpwm_gen_handle_t rotation_generator = NULL;
-    mcpwm_generator_config_t rotation_gen_config{};
-    rotation_gen_config.gen_gpio_num = SERVO_PIN_1;
-
-    ESP_ERROR_CHECK(mcpwm_new_generator(oper, &rotation_gen_config, &rotation_generator));
-
-    // Create generator for elevation servo
-    mcpwm_gen_handle_t elevation_generator = NULL;
-    mcpwm_generator_config_t elevation_gen_config{};
-    elevation_gen_config.gen_gpio_num = SERVO_PIN_2;
-
-    ESP_ERROR_CHECK(mcpwm_new_generator(oper, &elevation_gen_config, &elevation_generator));
-
-    // Set initial compare values to center position for both servos
-    // Rotation: 90° input → 90° servo, Elevation: 45° input → 45° servo (inverted to middle position)
-    ESP_ERROR_CHECK(mcpwm_comparator_set_compare_value(rotation_comparator,
-                                                       angle_to_compare(0))); // Start at 0°
-    ESP_ERROR_CHECK(mcpwm_comparator_set_compare_value(elevation_comparator,
-                                                       angle_to_compare(0))); // Start at 0°
-
-    ESP_LOGI(TAG, "Set generator actions on timer and compare events");
-
-    // Rotation servo: go high on counter empty
-    ESP_ERROR_CHECK(mcpwm_generator_set_action_on_timer_event(rotation_generator,
-                                                              MCPWM_GEN_TIMER_EVENT_ACTION(MCPWM_TIMER_DIRECTION_UP, MCPWM_TIMER_EVENT_EMPTY, MCPWM_GEN_ACTION_HIGH)));
-    // Rotation servo: go low on compare threshold
-    ESP_ERROR_CHECK(mcpwm_generator_set_action_on_compare_event(rotation_generator,
-                                                                MCPWM_GEN_COMPARE_EVENT_ACTION(MCPWM_TIMER_DIRECTION_UP, rotation_comparator, MCPWM_GEN_ACTION_LOW)));
-
-    // Elevation servo: go high on counter empty
-    ESP_ERROR_CHECK(mcpwm_generator_set_action_on_timer_event(elevation_generator,
-                                                              MCPWM_GEN_TIMER_EVENT_ACTION(MCPWM_TIMER_DIRECTION_UP, MCPWM_TIMER_EVENT_EMPTY, MCPWM_GEN_ACTION_HIGH)));
-    // Elevation servo: go low on compare threshold
-    ESP_ERROR_CHECK(mcpwm_generator_set_action_on_compare_event(elevation_generator,
-                                                                MCPWM_GEN_COMPARE_EVENT_ACTION(MCPWM_TIMER_DIRECTION_UP, elevation_comparator, MCPWM_GEN_ACTION_LOW)));
-
-    ESP_LOGI(TAG, "Enable and start timer");
-    ESP_ERROR_CHECK(mcpwm_timer_enable(timer));
-    ESP_ERROR_CHECK(mcpwm_timer_start_stop(timer, MCPWM_TIMER_START_NO_STOP));
-
+    mcpwm_servo_init();
+    
     uint16_t prev_duty_x = 2000, prev_duty_y = 2000; // ms
     while (1)
     {
@@ -223,8 +187,8 @@ extern "C" void app_main(void)
             prev_duty_x += lx * 10u;
             prev_duty_y += ly * 10u;
 
-            mcpwm_comparator_set_compare_value(rotation_comparator, prev_duty_x);
-            mcpwm_comparator_set_compare_value(elevation_comparator, prev_duty_y);
+            mcpwm_comparator_set_compare_value(comparator_1, prev_duty_x);
+            mcpwm_comparator_set_compare_value(comparator_2, prev_duty_y);
 
             ESP_LOGI("", "prev_duty_x:%d, prev_duty_y:%d, rx:%d, ry:%d", prev_duty_x, prev_duty_y, rx, ry);
         }
