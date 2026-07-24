@@ -1,142 +1,72 @@
-#include "./Joystick.h"
+#include "Button.h"
+#include "esp_timer.h"
 
-#include "driver/gpio.h"
-#include "esp_adc/adc_oneshot.h"
-
-Joystick::Joystick(adc_oneshot_unit_handle_t ip_adc_handle, adc_channel_t i_x_channel, adc_channel_t i_y_channel)
-    : mp_adc_handle(ip_adc_handle), m_x_channel(i_x_channel), m_y_channel(i_y_channel) {
-
-      };
-
-void Joystick::Init(adc_oneshot_unit_handle_t ip_adc_handle)
+uint32_t millis()
 {
-    mp_adc_handle = ip_adc_handle;
-    if (!mp_adc_handle)
-        return;
+    return esp_timer_get_time() / 1000;
+}
 
-    adc_oneshot_chan_cfg_t config = {
-        .atten = ADC_ATTEN_DB_12,         // 0 to 3.3V full-scale range
-        .bitwidth = ADC_BITWIDTH_DEFAULT, // Default max width for the chip (typically 12-bit)
-    };
-    ESP_ERROR_CHECK(adc_oneshot_config_channel(mp_adc_handle, m_x_channel, &config));
-    ESP_ERROR_CHECK(adc_oneshot_config_channel(mp_adc_handle, m_y_channel, &config));
+void Button::Init()
+{
+    gpio_config_t io_conf = {};
 
-    constexpr uint8_t number_of_reading = 8;
-    uint8_t reading_left = number_of_reading;
-    uint32_t accamulated_x = 0,
-             accamulated_y = 0;
+    io_conf.pin_bit_mask = (1ULL << m_gpio_pin);                                                               // Select GPIO 2
+    io_conf.mode = GPIO_MODE_INPUT;                                                                            // Set as output
+    io_conf.pull_up_en = m_use_built_in_res && !m_pulled_down ? GPIO_PULLUP_ENABLE : GPIO_PULLUP_DISABLE;      // Disable pull-up
+    io_conf.pull_down_en = m_use_built_in_res && m_pulled_down ? GPIO_PULLDOWN_ENABLE : GPIO_PULLDOWN_DISABLE; // Disable pull-up
+    io_conf.intr_type = GPIO_INTR_DISABLE;                                                                     // Disable interrupts
 
-    while (reading_left)
-    {
-        ESP_ERROR_CHECK(adc_oneshot_read(mp_adc_handle, m_x_channel, raw_values));
-        ESP_ERROR_CHECK(adc_oneshot_read(mp_adc_handle, m_y_channel, raw_values + 1));
-        accamulated_x += raw_values[0];
-        accamulated_y += raw_values[1];
-        --reading_left;
-    }
-    const uint16_t centroid_x = accamulated_x / number_of_reading;
-    const uint16_t centroid_y = accamulated_y / number_of_reading;
-
-    constexpr uint16_t offset_from_center = 25;
-    constexpr uint16_t hysterersys_width = 50;
-
-    m_high_transition_x_th[0] = centroid_x + offset_from_center;
-    m_high_transition_x_th[1] = m_high_transition_x_th[0] + hysterersys_width;
-    m_low_transition_x_th[0] = centroid_x - offset_from_center;
-    m_low_transition_x_th[1] = m_high_transition_x_th[0] - hysterersys_width;
-
-    m_high_transition_y_th[0] = centroid_y + offset_from_center;
-    m_high_transition_y_th[1] = m_high_transition_y_th[0] + hysterersys_width;
-    m_low_transition_y_th[0] = centroid_y - offset_from_center;
-    m_low_transition_y_th[1] = m_high_transition_y_th[0] - hysterersys_width;
-
-    /* Let me explain what the hell is going on in the code above ^
-    It's (no so) dummy initialization of two step hysteresys.
-    I would like joystick axis to have 3 state: down -1, centered 0 and up 1.
-    Thus hysteresys looks like
-                  +--+----- < These are high transition thresholds
-                  |  |
-         +--+-----+--+      < And centroid is in the middle of here.
-         |  |
-    -----+--+               < These are low transition thresholds
-    */
+    gpio_config(&io_conf);
+    m_last_update_timestamp = millis();
+    m_debounce_start_timestamp = m_last_update_timestamp;
+    m_press_timestamp = m_last_update_timestamp;
 };
 
-bool Joystick::Update()
+bool Button::GetMomentumButtonState()
 {
-    if (!mp_adc_handle)
+    return bool(gpio_get_level(m_gpio_pin)) == m_pulled_down;
+}
+
+bool Button::IsPressedFor(uint16_t i_period, bool i_cancel)
+{
+    if (m_disabled)
         return false;
-
-    const esp_err_t ret_x = adc_oneshot_read(mp_adc_handle, m_x_channel, raw_values);
-    const esp_err_t ret_y = adc_oneshot_read(mp_adc_handle, m_y_channel, raw_values + 1);
-
-    if (ret_x != ESP_OK || ret_y != ESP_OK)
+    if (!IsPressed() || m_last_update_timestamp - m_press_timestamp < i_period)
         return false;
-
-    m_state_x = UpdateState(m_state_x, raw_values[0], m_high_transition_x_th, m_low_transition_x_th);
-    m_state_y = UpdateState(m_state_y, raw_values[1], m_high_transition_y_th, m_low_transition_y_th);
-
+    if (i_cancel)
+        m_disabled = true;
     return true;
 };
 
-Joystick::Values Joystick::GetRawValues() const
+void Button::Update()
 {
-    return {(uint16_t)raw_values[0], (uint16_t)raw_values[1]};
-};
-
-void Joystick::SetOutputRanges(uint16_t x_min, uint16_t x_max, uint16_t y_min, uint16_t y_max)
-{
-    m_user_x_range[0] = x_min;
-    m_user_x_range[1] = x_max;
-    m_user_y_range[0] = y_min;
-    m_user_y_range[1] = y_max;
-    m_convert_ranges = true;
-}
-
-Joystick::Values Joystick::GetValues() const
-{
-    if (!m_convert_ranges)
-        return GetRawValues();
-
-    const uint16_t x = PrivateUtils::map<uint16_t, uint16_t>(raw_values[0], 0, 4095, m_user_x_range[0], m_user_x_range[1]);
-    const uint16_t y = PrivateUtils::map<uint16_t, uint16_t>(raw_values[1], 0, 4095, m_user_y_range[0], m_user_y_range[1]);
-    return {x, y};
-}
-
-int8_t Joystick::GetXState() const { return m_state_x; }
-int8_t Joystick::GetYState() const { return m_state_y; }
-
-int8_t Joystick::UpdateState(int8_t i_current_state, uint16_t i_new_value, const uint16_t *ip_ht_th, const uint16_t *ip_lt_th)
-{
-    switch (i_current_state)
+    m_last_update_timestamp = millis();
+    const bool raw = GetMomentumButtonState();
+    // Serial.println(raw);
+    if (m_in_debounce)
     {
-    case 0:
-        // To drop into -1, it must fall below the lower threshold
-        if (i_new_value < ip_lt_th[1])
-        {
-            i_current_state = -1;
-        }
-        // To jump into 1, it must rise above the upper threshold
-        else if (i_new_value > ip_ht_th[1])
-        {
-            i_current_state = 1;
-        }
-        break;
-    case -1:
-        // To leave -1 and go to 0, the reading must cross the higher threshold
-        if (i_new_value > ip_lt_th[0])
-        {
-            i_current_state = 0;
-        }
-        break;
+        if (m_last_update_timestamp - m_debounce_start_timestamp < m_debounce_period)
+            return;
 
-    case 1:
-        // To leave 1 and drop back to 0, it must fall below the lower threshold
-        if (i_new_value < ip_ht_th[0])
+        m_in_debounce = false;
+
+        if (raw != m_current_state)
         {
-            i_current_state = 0;
+            // 2. Only m_current_state changes here
+            m_current_state = raw;
+            m_changed = true;
+            m_disabled = false;
+            if (m_current_state)
+                m_press_timestamp = m_last_update_timestamp;
         }
-        break;
     }
-    return i_current_state;
+    else
+    {
+        if (raw != m_current_state)
+        {
+            m_debounce_start_timestamp = m_last_update_timestamp;
+            m_in_debounce = true;
+        }
+        m_changed = false;
+    }
 }
