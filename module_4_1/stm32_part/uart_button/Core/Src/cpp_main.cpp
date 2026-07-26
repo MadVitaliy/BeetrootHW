@@ -51,7 +51,7 @@ extern "C"
       osStatus_t status = osMessageQueueGet (G_MESSAGE_QUEUE_HANDLE, &message, NULL, osWaitForever);
       if (status == osOK) {
 
-        G_UART_COM.SendData(&message);
+        G_UART_COM.SendData( (&message), sizeof(Communication::MessageType));
 
       }
     }
@@ -67,7 +67,7 @@ extern "C"
     UartCom::PackageReceivedISR (ip_huart, i_size);
   }
 
-  void HAL_UARTEx_TxEventCallback (UART_HandleTypeDef *ip_huart, uint16_t i_size) {
+  void HAL_UART_TxCpltCallback (UART_HandleTypeDef *ip_huart) {
     UartCom::PackageSentISR (ip_huart);
   }
 }

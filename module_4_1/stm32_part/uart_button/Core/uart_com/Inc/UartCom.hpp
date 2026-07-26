@@ -11,7 +11,8 @@ extern "C"
 
 namespace Utils
 {
-  uint8_t CheckSum (const void *data, uint8_t len) {
+  inline uint8_t CheckSum (const void *i_data, uint8_t len) {
+    const uint8_t *data = reinterpret_cast<const uint8_t*> (i_data);
     uint8_t temp = 0;
     for (uint8_t i = 0; i < len; i++)
       temp ^= data[i];
@@ -25,6 +26,7 @@ namespace Utils
  * but communicate in "message-response" way
  */
 class UartCom {
+public:
   UartCom (UART_HandleTypeDef *ip_huart, DMA_HandleTypeDef *ip_hdma_usart_rx, DMA_HandleTypeDef *ip_hdma_usart_tx) :
       mp_huart (ip_huart), mp_hdma_usart_rx (ip_hdma_usart_rx), mp_hdma_usart_tx (ip_hdma_usart_tx), m_status (
           Status::IDLE) {
@@ -39,7 +41,7 @@ class UartCom {
   };
 
   bool SendData (const void *ip_data, uint8_t i_data_size_bytes) {
-    if (i_data_size_bytes > m_uart_buffer_size - 2)
+    if (i_data_size_bytes > m_uart_buffer_size - 4)
       return false; // transmission of big data requires more complex handling, so omit it for now.
 
     uint8_t *p_buffer_head = mp_uart_tx_buffer;
@@ -52,7 +54,12 @@ class UartCom {
     *(p_buffer_head++) = Utils::CheckSum (ip_data, i_data_size_bytes);
     *(p_buffer_head++) = G_MESSAGE_END;
 
-    HAL_UART_Transmit_DMA (mp_huart, mp_uart_tx_buffer, i_data_size_bytes + 2);
+    const auto rc = HAL_UART_Transmit_DMA (mp_huart, mp_uart_tx_buffer, i_data_size_bytes + 4);
+    // const auto rc = HAL_UART_Transmit (mp_huart, mp_uart_tx_buffer, i_data_size_bytes + 4, 5);
+    //char *msg = "Hello ESP32\n";
+    //const auto rc = HAL_UART_Transmit (mp_huart, (uint8_t*)msg, strlen(msg), 100);
+    if (rc != HAL_OK)
+      return false;
     m_status = Status::TRANSMITTING;
     return true;
   }
@@ -102,7 +109,7 @@ class UartCom {
 
 public:
 private:
-  constexpr size_t m_uart_buffer_size = 256;
+  static constexpr size_t m_uart_buffer_size = 256;
   uint8_t mp_uart_tx_buffer[m_uart_buffer_size];
   uint8_t mp_uart_rx_buffer[m_uart_buffer_size];
 
@@ -113,8 +120,8 @@ private:
 
   static UartCom *G_HANDLE;
 
-  constexpr uint8_t G_MESSAGE_START = 0x02;
-  constexpr uint8_t G_MESSAGE_END = 0x03;
+  static constexpr uint8_t G_MESSAGE_START = 0x02;
+  static constexpr uint8_t G_MESSAGE_END = 0x03;
 };
 
 // TODO: add instructions
@@ -125,12 +132,12 @@ namespace Communication
    * The first byte has
    */
   enum class MessageType : uint8_t {
-    NONE, // in case no messages has been received;
-    MENU,
-    ENTER,
-    ESCAPE,
-    ARROWS,    // + byte of arrows;
-    FUNCTIONAL // + a single byte number of functional key;
+    NONE = 0, // in case no messages has been received;
+    MENU = 1,
+    ENTER = 2,
+    ESCAPE = 3,
+    ARROWS = 4,    // + byte of arrows;
+    FUNCTIONAL = 5 // + a single byte number of functional key;
   };
   /**
    * @brief OsdUnit answers to every message from MainControlUnit (except ARROWS).
@@ -141,6 +148,4 @@ namespace Communication
     OK, CORRUPTED
   };
 }
-
-
 
