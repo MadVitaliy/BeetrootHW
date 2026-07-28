@@ -1,11 +1,7 @@
 #pragma once
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-void cpp_main(void);
-
-#ifdef __cplusplus
+extern "C"
+{
+  void cpp_main (void);
+  void AppInit (void);
 }
-#endif

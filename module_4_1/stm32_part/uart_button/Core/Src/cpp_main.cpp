@@ -25,25 +25,43 @@ UartCom G_UART_COM (&huart2, &hdma_usart2_rx, &hdma_usart2_tx);
 
 osMessageQueueId_t G_MESSAGE_QUEUE_HANDLE;
 
+static osMessageQueueId_t g_comm_queue = nullptr;
+
+
+extern "C" void App_Init(void) {
+    g_comm_queue = osMessageQueueNew(5, sizeof(Communication::MessageType), nullptr);
+
+    Tasks::Button::Init(g_comm_queue);
+    Tasks::Uart::Init(g_comm_queue);
+}
+
+// Hardware Interrupt Callbacks -> Module Routers
+extern "C" {
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+    Tasks::Button::OnExtiCallback(GPIO_Pin);
+}
+
+void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size) {
+    Tasks::Uart::OnRxEvent(huart, Size);
+}
+
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart) {
+    Tasks::Uart::OnTxComplete(huart);
+}
+
+}
+
 extern "C"
 {
+
   void StartDefaultTask (void *argument) {
     for (;;) {
       osDelay (1);
     }
   }
 
-  void StartButtonTask (void *argument) {
-    for (;;) {
-      osThreadFlagsWait (0x01, osFlagsWaitAny, osWaitForever);
-      osDelay (30);   // Debounce delay
-      if (HAL_GPIO_ReadPin (BUTTON_GPIO_Port, BUTTON_Pin) == GPIO_PIN_RESET) {
-        // Confirm button is still pressed
-        Communication::MessageType message = Communication::MessageType::FUNCTIONAL;
-        osMessageQueuePut (G_MESSAGE_QUEUE_HANDLE, &message, 0, 0);
-      }
-    }
-  }
+
 
   void StartUartComunication (void *argument) {
     for (;;) {

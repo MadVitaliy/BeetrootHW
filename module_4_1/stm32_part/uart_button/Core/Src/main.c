@@ -59,17 +59,7 @@ const osThreadAttr_t defaultTask_attributes = {
   .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for ButtonTask */
-osThreadId_t ButtonTaskHandle;
-uint32_t ButtonTaskBuffer[ 128 ];
-osStaticThreadDef_t ButtonTaskControlBlock;
-const osThreadAttr_t ButtonTask_attributes = {
-  .name = "ButtonTask",
-  .cb_mem = &ButtonTaskControlBlock,
-  .cb_size = sizeof(ButtonTaskControlBlock),
-  .stack_mem = &ButtonTaskBuffer[0],
-  .stack_size = sizeof(ButtonTaskBuffer),
-  .priority = (osPriority_t) osPriorityBelowNormal1,
-};
+
 /* Definitions for UartComunicatio */
 osThreadId_t UartComunicatioHandle;
 uint32_t UartComunicatioBuffer[ 512 ];
@@ -80,6 +70,18 @@ const osThreadAttr_t UartComunicatio_attributes = {
   .cb_size = sizeof(UartComunicatioControlBlock),
   .stack_mem = &UartComunicatioBuffer[0],
   .stack_size = sizeof(UartComunicatioBuffer),
+  .priority = (osPriority_t) osPriorityLow,
+};
+/* Definitions for LedTask */
+osThreadId_t LedTaskHandle;
+uint32_t LedTaskBuffer[ 128 ];
+osStaticThreadDef_t LedTaskControlBlock;
+const osThreadAttr_t LedTask_attributes = {
+  .name = "LedTask",
+  .cb_mem = &LedTaskControlBlock,
+  .cb_size = sizeof(LedTaskControlBlock),
+  .stack_mem = &LedTaskBuffer[0],
+  .stack_size = sizeof(LedTaskBuffer),
   .priority = (osPriority_t) osPriorityLow,
 };
 /* USER CODE BEGIN PV */
@@ -94,6 +96,7 @@ static void MX_USART2_UART_Init(void);
 void StartDefaultTask(void *argument);
 void StartButtonTask(void *argument);
 void StartUartComunication(void *argument);
+void StartLedTask(void *argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -141,6 +144,7 @@ int main(void)
   /* Init scheduler */
   /* USER CODE END 2 */
 
+  /* Init scheduler */
   osKernelInitialize();
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -157,21 +161,25 @@ int main(void)
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
-  G_MESSAGE_QUEUE_HANDLE = osMessageQueueNew(5, 1, NULL);
+  // G_MESSAGE_QUEUE_HANDLE = osMessageQueueNew(5, 1, NULL);
   //if (sensorQueueHandle != NULL)
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
   /* creation of defaultTask */
-  defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+  // defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
 
   /* creation of ButtonTask */
-  ButtonTaskHandle = osThreadNew(StartButtonTask, NULL, &ButtonTask_attributes);
+  // ButtonTaskHandle = osThreadNew(StartButtonTask, NULL, &ButtonTask_attributes);
 
   /* creation of UartComunicatio */
-  UartComunicatioHandle = osThreadNew(StartUartComunication, NULL, &UartComunicatio_attributes);
+  // UartComunicatioHandle = osThreadNew(StartUartComunication, NULL, &UartComunicatio_attributes);
+
+  /* creation of LedTask */
+  // LedTaskHandle = osThreadNew(StartLedTask, NULL, &LedTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
+  AppInit();
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
 
@@ -391,6 +399,24 @@ __weak void StartUartComunication(void *argument)
     osDelay(1);
   }
   /* USER CODE END StartUartComunication */
+}
+
+/* USER CODE BEGIN Header_StartLedTask */
+/**
+* @brief Function implementing the LedTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartLedTask */
+void StartLedTask(void *argument)
+{
+  /* USER CODE BEGIN StartLedTask */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END StartLedTask */
 }
 
 /**
