@@ -3,7 +3,12 @@
 #include <cstdint>
 #include <cstddef>
 
-constexpr bool G_BIG_ENDIAN = true;
+extern "C"
+{
+#include "cmsis_os.h"
+}
+
+constexpr bool G_BIG_ENDIAN = false;
 
 namespace Modbus
 {
@@ -24,5 +29,10 @@ namespace Modbus
     uint16_t data_adress;
     uint8_t *data;
     size_t data_size; // depends on the fc can mean bits or bytes.
+  };
+
+  struct RequestWithHandle {
+    Request request;
+    osThreadId_t task_handle;
   };
 }

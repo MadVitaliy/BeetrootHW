@@ -23,6 +23,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#include "cpp_main.hpp"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -59,19 +60,7 @@ const osThreadAttr_t defaultTask_attributes = {
   .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for ButtonTask */
-
 /* Definitions for UartComunicatio */
-osThreadId_t UartComunicatioHandle;
-uint32_t UartComunicatioBuffer[ 512 ];
-osStaticThreadDef_t UartComunicatioControlBlock;
-const osThreadAttr_t UartComunicatio_attributes = {
-  .name = "UartComunicatio",
-  .cb_mem = &UartComunicatioControlBlock,
-  .cb_size = sizeof(UartComunicatioControlBlock),
-  .stack_mem = &UartComunicatioBuffer[0],
-  .stack_size = sizeof(UartComunicatioBuffer),
-  .priority = (osPriority_t) osPriorityLow,
-};
 /* Definitions for LedTask */
 osThreadId_t LedTaskHandle;
 uint32_t LedTaskBuffer[ 128 ];
@@ -167,16 +156,14 @@ int main(void)
 
   /* Create the thread(s) */
   /* creation of defaultTask */
-  // defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+  defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
 
   /* creation of ButtonTask */
-  // ButtonTaskHandle = osThreadNew(StartButtonTask, NULL, &ButtonTask_attributes);
 
   /* creation of UartComunicatio */
-  // UartComunicatioHandle = osThreadNew(StartUartComunication, NULL, &UartComunicatio_attributes);
 
   /* creation of LedTask */
-  // LedTaskHandle = osThreadNew(StartLedTask, NULL, &LedTask_attributes);
+  LedTaskHandle = osThreadNew(StartLedTask, NULL, &LedTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   AppInit();
