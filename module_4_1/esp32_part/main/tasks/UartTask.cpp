@@ -20,7 +20,7 @@ uint16_t CalculateCRC(const uint8_t *o_buffer, size_t i_size);
 static void init_uart(void)
 {
     uart_config_t uart_config = {};
-    uart_config.baud_rate = 9600;
+    uart_config.baud_rate = 115200;
     uart_config.data_bits = UART_DATA_8_BITS;
     uart_config.parity = UART_PARITY_DISABLE;
     uart_config.stop_bits = UART_STOP_BITS_1;
@@ -45,7 +45,7 @@ static void send_command_task_entry(void *parameter)
         const uint32_t thread_notification = ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
         if (thread_notification > 0)
         {
-            const uint16_t value_to_be_sent = G_STM32_LED_STATUS ? 0x00FF : 0x0000;
+            const uint16_t value_to_be_sent = G_STM32_LED_STATUS ? 0xFFFF : 0x0000;
             uint8_t *p_res_buf = response + 3; //
             p_res_buf = SerializeWord(p_res_buf, value_to_be_sent);
             SerializeLittleEndian(p_res_buf, CalculateCRC(response, request_size_without_crc));

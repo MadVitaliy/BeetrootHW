@@ -29,6 +29,7 @@ namespace Tasks::Led
 
   void LedTask (void *argument) {
     uint16_t data_buffer[10];
+    const uint8_t* raw_data =  reinterpret_cast<uint8_t*>(data_buffer);
 
     Modbus::RequestWithHandle request;
     request.request.fc = Modbus::FunctionCode::F03_READ_HOLDING_REGISTER;
@@ -47,7 +48,8 @@ namespace Tasks::Led
       else if ((result & osFlagsError) != 0)
         continue;
 
-      bool led_status = data_buffer[6];
+
+      bool led_status = raw_data[6];
       if (led_status)
         HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
       else
