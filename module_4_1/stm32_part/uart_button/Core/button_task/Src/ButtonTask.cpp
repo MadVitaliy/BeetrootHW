@@ -14,16 +14,16 @@ namespace Tasks::Button
 {
   //static Button s_button_driver (0, BUTTON_GPIO_Port, BUTTON_Pin);
 
-  osThreadId_t ButtonTaskHandle;
+  osThreadId_t led_task_handle;
 
-  uint32_t ButtonTaskBuffer[128];
-  osStaticThreadDef_t ButtonTaskControlBlock;
-  const osThreadAttr_t ButtonTask_attributes =
+  uint32_t led_task_buffer[128];
+  osStaticThreadDef_t led_task_control_block;
+  const osThreadAttr_t led_task_attributes =
     { .name = "ButtonTask",                                 //
-        .cb_mem = &ButtonTaskControlBlock,                  //
-        .cb_size = sizeof(ButtonTaskControlBlock),          //
-        .stack_mem = &ButtonTaskBuffer[0],                  //
-        .stack_size = sizeof(ButtonTaskBuffer),             //
+        .cb_mem = &led_task_control_block,                  //
+        .cb_size = sizeof(led_task_control_block),          //
+        .stack_mem = &led_task_buffer[0],                  //
+        .stack_size = sizeof(led_task_buffer),             //
         .priority = (osPriority_t) osPriorityBelowNormal1,  //
       };
 
@@ -49,7 +49,7 @@ namespace Tasks::Button
 
   void Init (osMessageQueueId_t queueHandle) {
     s_target_queue = queueHandle;
-    s_button_task_handle = osThreadNew (ButtonTask, nullptr, &ButtonTask_attributes);
+    s_button_task_handle = osThreadNew (ButtonTask, nullptr, &led_task_attributes);
   }
 
 }

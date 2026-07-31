@@ -48,31 +48,10 @@ DMA_HandleTypeDef hdma_usart2_rx;
 DMA_HandleTypeDef hdma_usart2_tx;
 
 /* Definitions for defaultTask */
-osThreadId_t defaultTaskHandle;
-uint32_t defaultTaskBuffer[ 128 ];
-osStaticThreadDef_t defaultTaskControlBlock;
-const osThreadAttr_t defaultTask_attributes = {
-  .name = "defaultTask",
-  .cb_mem = &defaultTaskControlBlock,
-  .cb_size = sizeof(defaultTaskControlBlock),
-  .stack_mem = &defaultTaskBuffer[0],
-  .stack_size = sizeof(defaultTaskBuffer),
-  .priority = (osPriority_t) osPriorityNormal,
-};
 /* Definitions for ButtonTask */
 /* Definitions for UartComunicatio */
 /* Definitions for LedTask */
-osThreadId_t LedTaskHandle;
-uint32_t LedTaskBuffer[ 128 ];
-osStaticThreadDef_t LedTaskControlBlock;
-const osThreadAttr_t LedTask_attributes = {
-  .name = "LedTask",
-  .cb_mem = &LedTaskControlBlock,
-  .cb_size = sizeof(LedTaskControlBlock),
-  .stack_mem = &LedTaskBuffer[0],
-  .stack_size = sizeof(LedTaskBuffer),
-  .priority = (osPriority_t) osPriorityLow,
-};
+
 /* USER CODE BEGIN PV */
 extern osMessageQueueId_t G_MESSAGE_QUEUE_HANDLE;
 /* USER CODE END PV */
@@ -156,14 +135,12 @@ int main(void)
 
   /* Create the thread(s) */
   /* creation of defaultTask */
-  defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
 
   /* creation of ButtonTask */
 
   /* creation of UartComunicatio */
 
   /* creation of LedTask */
-  LedTaskHandle = osThreadNew(StartLedTask, NULL, &LedTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   AppInit();
@@ -252,7 +229,7 @@ static void MX_USART2_UART_Init(void)
 
   /* USER CODE END USART2_Init 1 */
   huart2.Instance = USART2;
-  huart2.Init.BaudRate = 115200;
+  huart2.Init.BaudRate = 9600;
   huart2.Init.WordLength = UART_WORDLENGTH_8B;
   huart2.Init.StopBits = UART_STOPBITS_1;
   huart2.Init.Parity = UART_PARITY_NONE;
