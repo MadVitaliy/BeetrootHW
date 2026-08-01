@@ -102,8 +102,7 @@ void Delay_Ticks (uint32_t ticks) {
 }
 
 void Delay (uint32_t i_delay_ms) {
-  HAL_Delay(i_delay_ms);
-  // Delay_Ticks (i_delay_ms * 16000);
+  Delay_Ticks (i_delay_ms * 16000);
 }
 
 /* USER CODE END 0 */
