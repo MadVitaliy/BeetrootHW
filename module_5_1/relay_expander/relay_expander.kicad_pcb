@@ -5218,7 +5218,7 @@
 				(type default)
 			)
 			(layer "F.SilkS")
-			(uuid "eaa0a1da-fd36-4cdc-b217-606740707778")
+			(uuid "822f6525-66ef-4f40-93b4-3bbeefe7570e")
 		)
 		(fp_line
 			(start -2.4 2)
@@ -5228,7 +5228,7 @@
 				(type default)
 			)
 			(layer "F.SilkS")
-			(uuid "65d33f74-d559-4518-84bf-ba8eb0de4fcd")
+			(uuid "ea8fb43d-05c8-422e-ac83-6bde7e118e77")
 		)
 		(fp_rect
 			(start -2.4 -1.5)
@@ -5239,7 +5239,7 @@
 			)
 			(fill no)
 			(layer "F.SilkS")
-			(uuid "c79128d9-3523-43a2-a274-c108275fa528")
+			(uuid "b6000f0b-6724-44d1-9a76-5c171f12dcd7")
 		)
 		(fp_rect
 			(start -2.5 -1.6)
@@ -5250,7 +5250,7 @@
 			)
 			(fill no)
 			(layer "F.CrtYd")
-			(uuid "eaf50dd2-55b6-4eee-84a8-8a02f404e9b6")
+			(uuid "8339053d-c257-4128-b743-3db82a6b02df")
 		)
 		(fp_line
 			(start 2.54 2.54)
@@ -5260,7 +5260,7 @@
 				(type default)
 			)
 			(layer "F.Fab")
-			(uuid "0bd88677-0813-4902-ae63-b40008b9e305")
+			(uuid "515a3d2c-0877-4172-9163-5d1e4ebbaaec")
 		)
 		(fp_line
 			(start -2.4 2)
@@ -5270,7 +5270,7 @@
 				(type default)
 			)
 			(layer "F.Fab")
-			(uuid "8b26625d-d98c-4c65-870f-ee89a5259fa5")
+			(uuid "8d3f6616-12f8-4d08-abeb-5f97bdcc0266")
 		)
 		(fp_rect
 			(start -2.4 -1.5)
@@ -5281,7 +5281,7 @@
 			)
 			(fill no)
 			(layer "F.Fab")
-			(uuid "a1428aad-f124-43b5-a0ab-af6d9d2dc550")
+			(uuid "866a3b53-8746-4807-8040-e4acec2201dc")
 		)
 		(pad "1" thru_hole roundrect
 			(at 0 0 270)
@@ -5307,15 +5307,15 @@
 			(uuid "55c5ae32-07ab-406c-a346-e1fb82815fef")
 		)
 		(embedded_fonts no)
-		(model "${KICAD9_3DMODEL_DIR}/TerminalBlock.3dshapes/TerminalBlock_MaiXu_MX126-5.0-05P_1x05_P5.00mm.step"
+		(model "C:/Users/vomelchenko/Documents/KiCad/custom_library/3d/2EDG-PCB/R/STEP/2EDGR-5.08-xxP (pitch 5.08mm)/2EDGR-5.08-02P-14-00AH.STEP"
 			(offset
-				(xyz 0 0 0)
+				(xyz 7.62 1.7 0)
 			)
 			(scale
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz 0 0 0)
+				(xyz -0 -0 -180)
 			)
 		)
 	)
@@ -9024,7 +9024,7 @@
 				(type default)
 			)
 			(layer "F.SilkS")
-			(uuid "54b6b5f6-f6f5-4d5d-a7cf-9694d2c5a762")
+			(uuid "316d3370-9e3d-40d5-a2b6-da5e15fa5eb9")
 		)
 		(fp_line
 			(start -2.4 2)
@@ -9034,7 +9034,7 @@
 				(type default)
 			)
 			(layer "F.SilkS")
-			(uuid "b61d6434-164f-4cb3-a8bc-598310f35725")
+			(uuid "73cf33a5-9aa5-47d6-b37f-5d5b87c812ce")
 		)
 		(fp_rect
 			(start -2.4 -1.5)
@@ -9045,7 +9045,7 @@
 			)
 			(fill no)
 			(layer "F.SilkS")
-			(uuid "cf725a1a-bf97-4c9e-b0b9-45d9d2ba76cc")
+			(uuid "c9646a3c-689c-4925-b335-7c90d2255747")
 		)
 		(fp_rect
 			(start -2.5 -1.6)
@@ -9056,7 +9056,7 @@
 			)
 			(fill no)
 			(layer "F.CrtYd")
-			(uuid "8728e576-d4da-486a-bc30-19627d3ddb51")
+			(uuid "87c7441d-9c7e-49cd-9f3f-3f96ad932b27")
 		)
 		(fp_line
 			(start 2.54 2.54)
@@ -9066,7 +9066,7 @@
 				(type default)
 			)
 			(layer "F.Fab")
-			(uuid "04ad505b-04f7-4f79-a9c8-7fb5f0fa2c20")
+			(uuid "166fba8f-a5aa-4f1f-8e68-b40fb0513411")
 		)
 		(fp_line
 			(start -2.4 2)
@@ -9076,7 +9076,7 @@
 				(type default)
 			)
 			(layer "F.Fab")
-			(uuid "06fad537-b3c5-4550-a310-bf41ac3d64c5")
+			(uuid "6192263e-183b-43da-b8f7-0aa28723e8cb")
 		)
 		(fp_rect
 			(start -2.4 -1.5)
@@ -9087,7 +9087,7 @@
 			)
 			(fill no)
 			(layer "F.Fab")
-			(uuid "58e0cf4b-d6a4-4d8e-b45e-4bf897d743bd")
+			(uuid "4fb4516f-94d6-49df-8e8f-0a0d4c08d8bd")
 		)
 		(pad "1" thru_hole roundrect
 			(at 0 0 270)
@@ -9113,15 +9113,15 @@
 			(uuid "36017267-01be-4cb5-8c45-2e1e5b24856b")
 		)
 		(embedded_fonts no)
-		(model "${KICAD9_3DMODEL_DIR}/TerminalBlock.3dshapes/TerminalBlock_MaiXu_MX126-5.0-05P_1x05_P5.00mm.step"
+		(model "C:/Users/vomelchenko/Documents/KiCad/custom_library/3d/2EDG-PCB/R/STEP/2EDGR-5.08-xxP (pitch 5.08mm)/2EDGR-5.08-02P-14-00AH.STEP"
 			(offset
-				(xyz 0 0 0)
+				(xyz 7.62 1.7 0)
 			)
 			(scale
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz 0 0 0)
+				(xyz -0 -0 -180)
 			)
 		)
 	)
@@ -9499,7 +9499,7 @@
 				(type default)
 			)
 			(layer "F.SilkS")
-			(uuid "38b711ed-36ce-4039-a3c8-14b9c03e5eb9")
+			(uuid "22ca64dc-b5ba-4237-b823-d65c04e2d95c")
 		)
 		(fp_line
 			(start 2.54 2.54)
@@ -9509,7 +9509,7 @@
 				(type default)
 			)
 			(layer "F.SilkS")
-			(uuid "e9300319-e830-4471-9475-aa249796a06a")
+			(uuid "8a4ef6f0-fc25-45c7-8b96-1a65ecac18cb")
 		)
 		(fp_line
 			(start 7.62 2.54)
@@ -9519,7 +9519,7 @@
 				(type default)
 			)
 			(layer "F.SilkS")
-			(uuid "c2e56603-0156-4f2b-bb3d-0c0a0f69d688")
+			(uuid "de86bc4b-d71d-4f83-a8f1-ecc9cee743e3")
 		)
 		(fp_line
 			(start 12.7 2.54)
@@ -9529,7 +9529,7 @@
 				(type default)
 			)
 			(layer "F.SilkS")
-			(uuid "1d668ec9-c556-43cb-8d60-0a84f1636e7d")
+			(uuid "43384f2b-74d2-4c56-82b5-3086a3a593d0")
 		)
 		(fp_line
 			(start 17.78 2.54)
@@ -9539,7 +9539,7 @@
 				(type default)
 			)
 			(layer "F.SilkS")
-			(uuid "8ee4a564-0062-4af8-a9e0-a64d35b95b75")
+			(uuid "bedc2d54-179a-4cf8-990a-53b084eb90fa")
 		)
 		(fp_rect
 			(start -2.4 -1.5)
@@ -9550,7 +9550,7 @@
 			)
 			(fill no)
 			(layer "F.SilkS")
-			(uuid "56a6d3a2-94fe-4d7f-ab86-ddceb169928b")
+			(uuid "914996db-cc5e-4b4c-94c0-f837aa717ad8")
 		)
 		(fp_rect
 			(start -2.5 -1.6)
@@ -9561,7 +9561,7 @@
 			)
 			(fill no)
 			(layer "F.CrtYd")
-			(uuid "1d119242-8458-4e9a-bb81-3e464f1fceac")
+			(uuid "98c83b36-9b71-41e2-9bc8-ae251d32b435")
 		)
 		(fp_line
 			(start -2.4 2)
@@ -9571,7 +9571,7 @@
 				(type default)
 			)
 			(layer "F.Fab")
-			(uuid "a76e322b-720e-4514-8a40-69263c84f771")
+			(uuid "fb8023cf-d07e-4006-89a1-b8bef104ed2b")
 		)
 		(fp_line
 			(start 2.54 2.54)
@@ -9581,7 +9581,7 @@
 				(type default)
 			)
 			(layer "F.Fab")
-			(uuid "be8a8933-16a9-4057-b315-08b0ee2407e1")
+			(uuid "0c15e3ae-b5e2-4fd3-a2a7-2bf69fcedbd8")
 		)
 		(fp_line
 			(start 7.62 2.54)
@@ -9591,7 +9591,7 @@
 				(type default)
 			)
 			(layer "F.Fab")
-			(uuid "d5ff3e70-fd46-400a-9696-0172a14e729d")
+			(uuid "ee197fe1-86e6-4a11-b2b9-991ab1e6ceb4")
 		)
 		(fp_line
 			(start 12.7 2.54)
@@ -9601,7 +9601,7 @@
 				(type default)
 			)
 			(layer "F.Fab")
-			(uuid "f66af058-ac43-41c0-8143-63a30a072dbf")
+			(uuid "86f640d1-6cb5-44ee-bed2-760cb7593c12")
 		)
 		(fp_line
 			(start 17.78 2.54)
@@ -9611,7 +9611,7 @@
 				(type default)
 			)
 			(layer "F.Fab")
-			(uuid "8b2f76bc-0886-466c-9de4-4babbe709bf3")
+			(uuid "33f755e8-4bcb-4ca6-9b74-a99c73c96786")
 		)
 		(fp_rect
 			(start -2.4 -1.5)
@@ -9622,7 +9622,7 @@
 			)
 			(fill no)
 			(layer "F.Fab")
-			(uuid "4ac7da34-48ce-4186-ba05-806a41ba9d34")
+			(uuid "72e97795-97bb-414e-a171-cb0919ea93ec")
 		)
 		(pad "1" thru_hole roundrect
 			(at 0 0)
@@ -9681,15 +9681,15 @@
 			(uuid "b0a325c1-a435-4227-b357-e95aeace4391")
 		)
 		(embedded_fonts no)
-		(model "${KICAD9_3DMODEL_DIR}/TerminalBlock.3dshapes/TerminalBlock_MaiXu_MX126-5.0-05P_1x05_P5.00mm.step"
+		(model "C:/Users/vomelchenko/Documents/KiCad/custom_library/3d/2EDG-PCB/R/STEP/2EDGR-5.08-xxP (pitch 5.08mm)/2EDGR-5.08-05P-14-00AH.STEP"
 			(offset
-				(xyz 0 0 0)
+				(xyz 22.86 1.7 0)
 			)
 			(scale
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz 0 0 0)
+				(xyz -0 -0 -180)
 			)
 		)
 	)
@@ -11578,7 +11578,7 @@
 				(type default)
 			)
 			(layer "F.SilkS")
-			(uuid "23ffbdd4-0296-49dd-af2b-086f470c1188")
+			(uuid "50a4fcc3-8056-4346-ab8a-2367e08e88e9")
 		)
 		(fp_line
 			(start 2.54 2.54)
@@ -11588,7 +11588,7 @@
 				(type default)
 			)
 			(layer "F.SilkS")
-			(uuid "7c9944c5-9efe-4be0-a956-ce1b976999cc")
+			(uuid "2acf443d-113e-434f-8133-8f17557d601b")
 		)
 		(fp_line
 			(start 7.62 2.54)
@@ -11598,7 +11598,7 @@
 				(type default)
 			)
 			(layer "F.SilkS")
-			(uuid "fe1d3ea4-2eca-4ae1-a3d5-5eac88965f52")
+			(uuid "bcf83806-fe5d-4295-8dbf-de2bf7940551")
 		)
 		(fp_line
 			(start 12.7 2.54)
@@ -11608,7 +11608,7 @@
 				(type default)
 			)
 			(layer "F.SilkS")
-			(uuid "fddf0bfe-7555-47bb-8919-d856943b72aa")
+			(uuid "160b41da-10c7-4312-8b71-f6fcdcb90ab3")
 		)
 		(fp_rect
 			(start -2.48 -1.5)
@@ -11619,7 +11619,7 @@
 			)
 			(fill no)
 			(layer "F.SilkS")
-			(uuid "aa7022c3-01ee-4779-b514-185fb65e4d15")
+			(uuid "95225fa8-d947-4137-bf93-bf11022b6ecc")
 		)
 		(fp_rect
 			(start -2.5 -1.6)
@@ -11630,7 +11630,7 @@
 			)
 			(fill no)
 			(layer "F.CrtYd")
-			(uuid "959729f3-fb0a-48f8-86ef-4e8a847f2bfd")
+			(uuid "35483439-9d20-4622-9de2-2cdfc47fa0e7")
 		)
 		(fp_line
 			(start -2.4 2)
@@ -11640,7 +11640,7 @@
 				(type default)
 			)
 			(layer "F.Fab")
-			(uuid "0510e314-852f-416e-bb7f-60b00908c74c")
+			(uuid "b7ff58dc-f8c0-4a1b-8b65-dfbdaa9d73b3")
 		)
 		(fp_line
 			(start 2.54 2.54)
@@ -11650,7 +11650,7 @@
 				(type default)
 			)
 			(layer "F.Fab")
-			(uuid "f6ffac1a-7098-478d-9b31-b66d30890d37")
+			(uuid "445b50b0-9aa3-474f-9275-f95e5ec7d61a")
 		)
 		(fp_line
 			(start 7.62 2.54)
@@ -11660,7 +11660,7 @@
 				(type default)
 			)
 			(layer "F.Fab")
-			(uuid "bf593d89-e15a-4c28-afc3-3b8502700109")
+			(uuid "a4ae37fe-5bc8-4e54-8fa2-86be29aa776b")
 		)
 		(fp_line
 			(start 12.7 2.54)
@@ -11670,7 +11670,7 @@
 				(type default)
 			)
 			(layer "F.Fab")
-			(uuid "ee6209e6-be80-4c04-be81-80677f8b35fe")
+			(uuid "56e4f419-928f-4ea7-9450-68d2b8123a37")
 		)
 		(fp_line
 			(start 17.78 2.54)
@@ -11680,7 +11680,7 @@
 				(type default)
 			)
 			(layer "F.Fab")
-			(uuid "84625b23-2b44-4f3c-934e-523707ae4a39")
+			(uuid "38a9e2e1-6c54-4bca-b126-44c0730a3fb6")
 		)
 		(fp_rect
 			(start -2.4 -1.5)
@@ -11691,7 +11691,7 @@
 			)
 			(fill no)
 			(layer "F.Fab")
-			(uuid "1abfba1a-2733-43d0-a3ed-a1488a8e7471")
+			(uuid "d996d2eb-24ee-4233-9f39-8550cb96e62f")
 		)
 		(pad "1" thru_hole roundrect
 			(at 0 0)
@@ -11739,15 +11739,15 @@
 			(uuid "358ecb19-e124-4921-9b0c-e2ce2595a9cb")
 		)
 		(embedded_fonts no)
-		(model "${KICAD9_3DMODEL_DIR}/TerminalBlock.3dshapes/TerminalBlock_MaiXu_MX126-5.0-05P_1x05_P5.00mm.step"
+		(model "C:/Users/vomelchenko/Documents/KiCad/custom_library/3d/2EDG-PCB/R/STEP/2EDGR-5.08-xxP (pitch 5.08mm)/2EDGR-5.08-04P-14-00AH.STEP"
 			(offset
-				(xyz 0 0 0)
+				(xyz 17.78 1.7 0)
 			)
 			(scale
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz 0 0 0)
+				(xyz -0 -0 -180)
 			)
 		)
 	)
