@@ -850,6 +850,157 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Device:FerriteBead_Small"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "FB"
+				(at 1.905 1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "FerriteBead_Small"
+				(at 1.905 -1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at -1.778 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Ferrite bead, small symbol"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "L ferrite bead inductor filter"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Inductor_* L_* *Ferrite*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "FerriteBead_Small_0_1"
+				(polyline
+					(pts
+						(xy -1.8288 0.2794) (xy -1.1176 1.4986) (xy 1.8288 -0.2032) (xy 1.1176 -1.4224) (xy -1.8288 0.2794)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0.889) (xy 0 1.2954)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -1.27) (xy 0 -0.7874)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "FerriteBead_Small_1_1"
+				(pin passive line
+					(at 0 2.54 270)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 90)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Device:Fuse_Small"
 			(pin_numbers
 				(hide yes)
@@ -970,6 +1121,189 @@
 					(at 2.54 0 180)
 					(length 1.27)
 					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Device:LED"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "D"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "LED"
+				(at 0 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Light emitting diode"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Pins" "1=K 2=A"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "LED diode"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "LED* LED_SMD:* LED_THT:*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "LED_0_1"
+				(polyline
+					(pts
+						(xy -3.048 -0.762) (xy -4.572 -2.286) (xy -3.81 -2.286) (xy -4.572 -2.286) (xy -4.572 -1.524)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.778 -0.762) (xy -3.302 -2.286) (xy -2.54 -2.286) (xy -3.302 -2.286) (xy -3.302 -1.524)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 0) (xy 1.27 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 -1.27) (xy -1.27 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0) (xy 1.27 -1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "LED_1_1"
+				(pin passive line
+					(at -3.81 0 0)
+					(length 2.54)
+					(name "K"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 3.81 0 180)
+					(length 2.54)
+					(name "A"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -5055,6 +5389,12 @@
 		(uuid "00941b83-0aa9-4c7a-999b-6c113abe5180")
 	)
 	(junction
+		(at 44.45 114.3)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1485c634-3fc3-4d52-9176-8349c069dfdb")
+	)
+	(junction
 		(at 116.84 104.14)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5071,6 +5411,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "31a9548c-ad8b-473d-8ee3-98f903223bcf")
+	)
+	(junction
+		(at 44.45 91.44)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "33f6e6a6-5b47-4653-8d4b-0e65442195ae")
 	)
 	(junction
 		(at 156.21 91.44)
@@ -5103,7 +5449,7 @@
 		(uuid "44c39e89-f1b7-493f-9bec-b6e2b90d4356")
 	)
 	(junction
-		(at 71.12 91.44)
+		(at 59.69 91.44)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "457c676d-4498-4ec3-8478-404bffdacac9")
@@ -5127,6 +5473,12 @@
 		(uuid "5be90ca3-5c79-41c6-8c89-5b6dbc3c1f0f")
 	)
 	(junction
+		(at 64.77 91.44)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5e321439-d495-4ff4-b7c8-ab0d4d7c586a")
+	)
+	(junction
 		(at 46.99 160.02)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5143,6 +5495,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "6194b6ab-faf9-4351-b24b-c0879a2b067d")
+	)
+	(junction
+		(at 44.45 101.6)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "62cba46a-2de3-4544-a25f-afee9c7f89db")
 	)
 	(junction
 		(at 144.78 63.5)
@@ -5163,6 +5521,12 @@
 		(uuid "6c4c9986-8e0d-4fd3-b640-40efa4cc40e4")
 	)
 	(junction
+		(at 59.69 114.3)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6fe05ad0-2ea9-4009-9f39-9f204474ecfb")
+	)
+	(junction
 		(at 177.8 93.98)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5173,6 +5537,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "73d4adf6-5f8c-4b69-a07d-b409786b906a")
+	)
+	(junction
+		(at 191.77 83.82)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "75eb03e6-bd9d-4fec-980b-566932b395d7")
 	)
 	(junction
 		(at 237.49 85.09)
@@ -5193,22 +5563,10 @@
 		(uuid "8b25e674-1d8a-45d4-ae48-cde62fd3961d")
 	)
 	(junction
-		(at 53.34 101.6)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8b33cafc-3db1-4c13-a585-f5d74c644edd")
-	)
-	(junction
 		(at 238.76 110.49)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "972f1324-400b-45d6-8d7b-48357c0faca2")
-	)
-	(junction
-		(at 53.34 114.3)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "a2bc11bb-1470-44ca-8c0c-1eb86bcc7ccf")
 	)
 	(junction
 		(at 97.79 157.48)
@@ -5227,12 +5585,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "bec5de32-3d84-4610-bc70-88b5f1f4b7cb")
-	)
-	(junction
-		(at 53.34 91.44)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c2d7f5ae-9626-4fa4-b202-b932ea47952a")
 	)
 	(junction
 		(at 54.61 165.1)
@@ -5265,10 +5617,10 @@
 		(uuid "cdd8855a-396a-41d6-a6f7-f8e3bdb1b326")
 	)
 	(junction
-		(at 31.75 114.3)
+		(at 27.94 114.3)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "d9bd43b8-0aa8-4b0f-80f8-00b20a37c89d")
+		(uuid "d7f6876f-50e9-4703-a5ae-a35f23e6bdda")
 	)
 	(junction
 		(at 247.65 74.93)
@@ -5296,6 +5648,16 @@
 	)
 	(wire
 		(pts
+			(xy 64.77 114.3) (xy 59.69 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "00811654-b978-4316-9c47-d5dd4725fbb2")
+	)
+	(wire
+		(pts
 			(xy 224.79 74.93) (xy 227.33 74.93)
 		)
 		(stroke
@@ -5316,7 +5678,7 @@
 	)
 	(wire
 		(pts
-			(xy 53.34 111.76) (xy 53.34 114.3)
+			(xy 44.45 111.76) (xy 44.45 114.3)
 		)
 		(stroke
 			(width 0)
@@ -5353,16 +5715,6 @@
 			(type default)
 		)
 		(uuid "05101446-aa71-4ca9-bfed-1de705b86604")
-	)
-	(wire
-		(pts
-			(xy 31.75 114.3) (xy 53.34 114.3)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "053434d3-bd17-4b6e-a8ea-ac2348a60458")
 	)
 	(wire
 		(pts
@@ -5506,7 +5858,7 @@
 	)
 	(wire
 		(pts
-			(xy 31.75 93.98) (xy 31.75 114.3)
+			(xy 27.94 93.98) (xy 27.94 114.3)
 		)
 		(stroke
 			(width 0)
@@ -5536,7 +5888,7 @@
 	)
 	(wire
 		(pts
-			(xy 71.12 91.44) (xy 71.12 104.14)
+			(xy 59.69 91.44) (xy 59.69 104.14)
 		)
 		(stroke
 			(width 0)
@@ -5596,7 +5948,7 @@
 	)
 	(wire
 		(pts
-			(xy 71.12 91.44) (xy 76.2 91.44)
+			(xy 59.69 91.44) (xy 64.77 91.44)
 		)
 		(stroke
 			(width 0)
@@ -5606,7 +5958,7 @@
 	)
 	(wire
 		(pts
-			(xy 134.62 48.26) (xy 120.65 48.26)
+			(xy 134.62 48.26) (xy 123.19 48.26)
 		)
 		(stroke
 			(width 0)
@@ -5706,7 +6058,7 @@
 	)
 	(wire
 		(pts
-			(xy 31.75 91.44) (xy 44.45 91.44)
+			(xy 27.94 91.44) (xy 34.29 91.44)
 		)
 		(stroke
 			(width 0)
@@ -5716,7 +6068,7 @@
 	)
 	(wire
 		(pts
-			(xy 49.53 91.44) (xy 53.34 91.44)
+			(xy 39.37 91.44) (xy 44.45 91.44)
 		)
 		(stroke
 			(width 0)
@@ -5733,6 +6085,16 @@
 			(type default)
 		)
 		(uuid "2ff59566-85b1-4387-b934-cbd30b2de453")
+	)
+	(wire
+		(pts
+			(xy 44.45 91.44) (xy 46.99 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "30512730-a470-4080-add0-b32d90a2c2e0")
 	)
 	(wire
 		(pts
@@ -5806,23 +6168,13 @@
 	)
 	(wire
 		(pts
-			(xy 186.69 83.82) (xy 189.23 83.82)
+			(xy 186.69 83.82) (xy 191.77 83.82)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "3d6e51d4-2ef6-43d4-a21d-87b528c57eee")
-	)
-	(wire
-		(pts
-			(xy 53.34 91.44) (xy 58.42 91.44)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3dc2e85a-4377-4cb3-a5ff-562eaad31922")
 	)
 	(wire
 		(pts
@@ -5833,6 +6185,16 @@
 			(type default)
 		)
 		(uuid "3f0a2518-beda-4ee2-b2ce-80c1894d2f33")
+	)
+	(wire
+		(pts
+			(xy 191.77 83.82) (xy 191.77 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3f528724-2118-44c0-9b9b-0ad04efdf48a")
 	)
 	(wire
 		(pts
@@ -5886,7 +6248,7 @@
 	)
 	(wire
 		(pts
-			(xy 31.75 114.3) (xy 31.75 116.84)
+			(xy 27.94 114.3) (xy 27.94 116.84)
 		)
 		(stroke
 			(width 0)
@@ -5916,7 +6278,7 @@
 	)
 	(wire
 		(pts
-			(xy 120.65 50.8) (xy 147.32 50.8)
+			(xy 123.19 50.8) (xy 147.32 50.8)
 		)
 		(stroke
 			(width 0)
@@ -5986,6 +6348,16 @@
 	)
 	(wire
 		(pts
+			(xy 27.94 114.3) (xy 44.45 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4f7c120f-4201-4c81-9856-00d8bb0f966b")
+	)
+	(wire
+		(pts
 			(xy 140.97 130.81) (xy 140.97 125.73)
 		)
 		(stroke
@@ -6013,6 +6385,16 @@
 			(type default)
 		)
 		(uuid "532dc0f8-6d5e-47cb-91ff-f62eee700489")
+	)
+	(wire
+		(pts
+			(xy 64.77 91.44) (xy 64.77 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "53fda4ae-70c0-4e0f-8f4d-495865f45b7e")
 	)
 	(wire
 		(pts
@@ -6086,6 +6468,16 @@
 	)
 	(wire
 		(pts
+			(xy 64.77 104.14) (xy 64.77 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6247d399-9f99-458b-8ab9-1ee5d14918fc")
+	)
+	(wire
+		(pts
 			(xy 166.37 45.72) (xy 163.83 45.72)
 		)
 		(stroke
@@ -6106,6 +6498,16 @@
 	)
 	(wire
 		(pts
+			(xy 64.77 91.44) (xy 67.31 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6388bb31-a4c8-476d-a7d0-d6241f5248be")
+	)
+	(wire
+		(pts
 			(xy 102.87 180.34) (xy 102.87 177.8)
 		)
 		(stroke
@@ -6116,7 +6518,7 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 45.72) (xy 100.33 45.72)
+			(xy 85.09 45.72) (xy 102.87 45.72)
 		)
 		(stroke
 			(width 0)
@@ -6143,6 +6545,16 @@
 			(type default)
 		)
 		(uuid "65bedb20-c201-4bf3-b1f7-494762e1b2cc")
+	)
+	(wire
+		(pts
+			(xy 44.45 114.3) (xy 59.69 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "67ebd39c-1233-4705-9aa6-e53d79cf6d09")
 	)
 	(wire
 		(pts
@@ -6193,6 +6605,16 @@
 			(type default)
 		)
 		(uuid "69d15b33-fc58-46db-bd6d-2673c08ef41d")
+	)
+	(wire
+		(pts
+			(xy 90.17 38.1) (xy 99.06 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6b25bef6-6c0e-47ae-9d94-0e9565e19969")
 	)
 	(wire
 		(pts
@@ -6356,6 +6778,16 @@
 	)
 	(wire
 		(pts
+			(xy 93.98 35.56) (xy 99.06 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7ae286e4-0436-4848-9740-01c916a77399")
+	)
+	(wire
+		(pts
 			(xy 168.91 83.82) (xy 177.8 83.82)
 		)
 		(stroke
@@ -6396,13 +6828,13 @@
 	)
 	(wire
 		(pts
-			(xy 53.34 101.6) (xy 63.5 101.6)
+			(xy 85.09 35.56) (xy 88.9 35.56)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "8a617bce-0611-4b66-8844-101e2ea2a65f")
+		(uuid "876a23b8-32fc-4cb0-a8cd-eba2d1b69097")
 	)
 	(wire
 		(pts
@@ -6476,23 +6908,13 @@
 	)
 	(wire
 		(pts
-			(xy 179.07 116.84) (xy 182.88 116.84)
+			(xy 179.07 116.84) (xy 209.55 116.84)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "95af0a46-dc58-4931-b230-17b0729505e5")
-	)
-	(wire
-		(pts
-			(xy 53.34 114.3) (xy 71.12 114.3)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9717bae2-67fb-4201-8653-52f49701bfa5")
 	)
 	(wire
 		(pts
@@ -6556,7 +6978,7 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 50.8) (xy 100.33 50.8)
+			(xy 85.09 50.8) (xy 102.87 50.8)
 		)
 		(stroke
 			(width 0)
@@ -6716,7 +7138,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 101.6) (xy 63.5 99.06)
+			(xy 52.07 101.6) (xy 52.07 99.06)
 		)
 		(stroke
 			(width 0)
@@ -6786,7 +7208,7 @@
 	)
 	(wire
 		(pts
-			(xy 53.34 101.6) (xy 53.34 104.14)
+			(xy 44.45 101.6) (xy 44.45 104.14)
 		)
 		(stroke
 			(width 0)
@@ -6796,7 +7218,7 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 55.88) (xy 100.33 55.88)
+			(xy 85.09 55.88) (xy 102.87 55.88)
 		)
 		(stroke
 			(width 0)
@@ -6806,7 +7228,7 @@
 	)
 	(wire
 		(pts
-			(xy 120.65 40.64) (xy 127 40.64)
+			(xy 123.19 40.64) (xy 127 40.64)
 		)
 		(stroke
 			(width 0)
@@ -6816,7 +7238,7 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 48.26) (xy 100.33 48.26)
+			(xy 85.09 48.26) (xy 102.87 48.26)
 		)
 		(stroke
 			(width 0)
@@ -6826,7 +7248,7 @@
 	)
 	(wire
 		(pts
-			(xy 120.65 45.72) (xy 132.08 45.72)
+			(xy 123.19 45.72) (xy 132.08 45.72)
 		)
 		(stroke
 			(width 0)
@@ -6846,6 +7268,16 @@
 	)
 	(wire
 		(pts
+			(xy 44.45 101.6) (xy 52.07 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bb4ad64b-b28b-4533-9e0a-28c188504152")
+	)
+	(wire
+		(pts
 			(xy 132.08 40.64) (xy 147.32 40.64)
 		)
 		(stroke
@@ -6856,7 +7288,7 @@
 	)
 	(wire
 		(pts
-			(xy 53.34 99.06) (xy 53.34 101.6)
+			(xy 44.45 99.06) (xy 44.45 101.6)
 		)
 		(stroke
 			(width 0)
@@ -6896,7 +7328,17 @@
 	)
 	(wire
 		(pts
-			(xy 129.54 43.18) (xy 120.65 43.18)
+			(xy 191.77 100.33) (xy 191.77 102.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c5c46ce7-0d7a-41ad-84a4-b4eabc4767fa")
+	)
+	(wire
+		(pts
+			(xy 129.54 43.18) (xy 123.19 43.18)
 		)
 		(stroke
 			(width 0)
@@ -6976,7 +7418,7 @@
 	)
 	(wire
 		(pts
-			(xy 68.58 91.44) (xy 71.12 91.44)
+			(xy 57.15 91.44) (xy 59.69 91.44)
 		)
 		(stroke
 			(width 0)
@@ -7036,7 +7478,7 @@
 	)
 	(wire
 		(pts
-			(xy 132.08 55.88) (xy 120.65 55.88)
+			(xy 132.08 55.88) (xy 123.19 55.88)
 		)
 		(stroke
 			(width 0)
@@ -7046,7 +7488,7 @@
 	)
 	(wire
 		(pts
-			(xy 120.65 53.34) (xy 134.62 53.34)
+			(xy 123.19 53.34) (xy 134.62 53.34)
 		)
 		(stroke
 			(width 0)
@@ -7056,7 +7498,7 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 40.64) (xy 100.33 40.64)
+			(xy 85.09 40.64) (xy 102.87 40.64)
 		)
 		(stroke
 			(width 0)
@@ -7083,16 +7525,6 @@
 			(type default)
 		)
 		(uuid "e1942853-7fb6-4ddb-b879-92480dafa5ae")
-	)
-	(wire
-		(pts
-			(xy 85.09 38.1) (xy 90.17 38.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e4b283de-7be3-4196-98c3-5ba85a376698")
 	)
 	(wire
 		(pts
@@ -7166,23 +7598,13 @@
 	)
 	(wire
 		(pts
-			(xy 53.34 91.44) (xy 53.34 93.98)
+			(xy 44.45 91.44) (xy 44.45 93.98)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "ee7808f4-4665-4c57-9e22-6969dc0df163")
-	)
-	(wire
-		(pts
-			(xy 85.09 35.56) (xy 90.17 35.56)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "eed982bd-7c11-40a6-a9ab-8c632772925f")
 	)
 	(wire
 		(pts
@@ -7196,7 +7618,7 @@
 	)
 	(wire
 		(pts
-			(xy 71.12 111.76) (xy 71.12 114.3)
+			(xy 59.69 111.76) (xy 59.69 114.3)
 		)
 		(stroke
 			(width 0)
@@ -7206,7 +7628,7 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 43.18) (xy 100.33 43.18)
+			(xy 85.09 43.18) (xy 102.87 43.18)
 		)
 		(stroke
 			(width 0)
@@ -7246,7 +7668,17 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 53.34) (xy 100.33 53.34)
+			(xy 191.77 83.82) (xy 210.82 83.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fa4d9001-5ced-4fb3-a71e-22d8965dd0a2")
+	)
+	(wire
+		(pts
+			(xy 85.09 53.34) (xy 102.87 53.34)
 		)
 		(stroke
 			(width 0)
@@ -7284,6 +7716,16 @@
 		)
 		(uuid "2cb9fb9e-23fd-4147-8a7f-568d0f2149e5")
 	)
+	(label "RX"
+		(at 99.06 38.1 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3777cd9c-2c53-4abf-a4ca-7889c2c0b441")
+	)
 	(label "SCLK"
 		(at 236.22 128.27 180)
 		(effects
@@ -7304,6 +7746,16 @@
 		)
 		(uuid "5cd2376e-d4fe-42ac-b86b-ec240212a531")
 	)
+	(label "TX"
+		(at 99.06 35.56 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "84415886-0b09-4148-9fea-f1c1fa6b67bd")
+	)
 	(label "DE"
 		(at 35.56 165.1 180)
 		(effects
@@ -7323,16 +7775,6 @@
 			(justify right bottom)
 		)
 		(uuid "997163ec-0290-40c8-8802-9eef677fba48")
-	)
-	(label "RX"
-		(at 90.17 38.1 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "a51da1a0-d068-4790-b0a4-ebe5a61c15f6")
 	)
 	(label "DE"
 		(at 90.17 33.02 0)
@@ -7373,16 +7815,6 @@
 			(justify right bottom)
 		)
 		(uuid "f8088685-6ee7-4b0b-a460-b2c856bd125a")
-	)
-	(label "TX"
-		(at 90.17 35.56 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "f867316c-1e6b-4b8a-b90a-e8469fb7434e")
 	)
 	(symbol
 		(lib_id "Device:R_Small")
@@ -7438,6 +7870,33 @@
 				(hide yes)
 			)
 		)
+		(property "Link" "https://kosmodrom.ua/smd-rezistor-2513/smd-rezistor-0603-100-kom-1-tochni.html"
+			(at 116.84 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPM" "RC0603FR-07100KL"
+			(at 116.84 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" ""
+			(at 116.84 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "18a5f46c-0ef8-4213-9193-9f4e4faa1194")
 		)
@@ -7455,16 +7914,15 @@
 	)
 	(symbol
 		(lib_id "Diode:SMAJ28A")
-		(at 71.12 107.95 270)
+		(at 59.69 107.95 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "00df94e4-f95b-4e97-8ebf-45b43c2bc248")
 		(property "Reference" "D2"
-			(at 73.66 106.6799 90)
+			(at 49.53 106.934 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7473,7 +7931,7 @@
 			)
 		)
 		(property "Value" "SMAJ28A"
-			(at 73.66 109.2199 90)
+			(at 49.53 109.474 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7482,7 +7940,7 @@
 			)
 		)
 		(property "Footprint" "Diode_SMD:D_SMA"
-			(at 66.04 107.95 0)
+			(at 54.61 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7491,7 +7949,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.littelfuse.com/media?resourcetype=datasheets&itemid=75e32973-b177-4ee3-a0ff-cedaf1abdb93&filename=smaj-datasheet"
-			(at 71.12 106.68 0)
+			(at 59.69 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7500,7 +7958,7 @@
 			)
 		)
 		(property "Description" "400W unidirectional Transient Voltage Suppressor, 28.0Vr, SMA(DO-214AC)"
-			(at 71.12 107.95 0)
+			(at 59.69 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7509,7 +7967,7 @@
 			)
 		)
 		(property "Link" "https://kosmodrom.ua/zahisniy-diod-supresor/smaj28a-tr.html"
-			(at 71.12 107.95 90)
+			(at 59.69 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7518,7 +7976,16 @@
 			)
 		)
 		(property "MPM" "SMAJ28A-TR"
-			(at 71.12 107.95 90)
+			(at 59.69 107.95 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" ""
+			(at 59.69 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7613,6 +8080,15 @@
 				(hide yes)
 			)
 		)
+		(property "Link 2" ""
+			(at 238.76 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "f340a7df-571f-44e1-bd12-c3e42c354fb2")
 		)
@@ -7673,6 +8149,33 @@
 		)
 		(property "Description" "Resistor, small symbol"
 			(at 82.55 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link" "https://www.rcscomponents.kiev.ua/product/560-ohm-5-0-1w-50v-0603-rc03k3561jt-kome-rezystor-smd_4507.html"
+			(at 82.55 167.64 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPM" "RC03K3561JT-KOME"
+			(at 82.55 167.64 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" ""
+			(at 82.55 167.64 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7827,6 +8330,24 @@
 		)
 		(property "Link" "https://kosmodrom.ua/rele-elektromehanichne/hf49fd-024-1h12.html"
 			(at 171.704 38.608 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" "https://www.rcscomponents.kiev.ua/product/rele-hf49fd-024-1h12t_71939.html"
+			(at 160.02 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPM" "HF49FD/024-1H12"
+			(at 160.02 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8060,6 +8581,15 @@
 				(hide yes)
 			)
 		)
+		(property "Link 2" ""
+			(at 237.49 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "25885e12-d5eb-480e-8015-aad6232ee784")
 		)
@@ -8080,7 +8610,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 31.75 116.84 0)
+		(at 27.94 116.84 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8089,7 +8619,7 @@
 		(fields_autoplaced yes)
 		(uuid "1c1d7c8b-9e4c-47f3-b994-17571ed6c379")
 		(property "Reference" "#PWR025"
-			(at 31.75 123.19 0)
+			(at 27.94 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8098,7 +8628,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 31.75 121.92 0)
+			(at 27.94 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8106,7 +8636,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 31.75 116.84 0)
+			(at 27.94 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8115,7 +8645,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 31.75 116.84 0)
+			(at 27.94 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8124,7 +8654,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 31.75 116.84 0)
+			(at 27.94 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8215,6 +8745,15 @@
 				(hide yes)
 			)
 		)
+		(property "Link 2" ""
+			(at 148.59 83.82 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "edcfb4a8-ff1d-493b-b357-201cba4dda5b")
 		)
@@ -8282,6 +8821,33 @@
 				(hide yes)
 			)
 		)
+		(property "Link" "https://kosmodrom.ua/smd-rezistor-2513/smd-rezistor-0603-100-kom-1-tochni.html"
+			(at 123.19 116.84 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPM" "RC0603FR-07100KL"
+			(at 123.19 116.84 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" ""
+			(at 123.19 116.84 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "bdf8ab03-6aca-4d45-a7fd-e2a3d161fbbc")
 		)
@@ -8292,6 +8858,91 @@
 			(project "relay_expander"
 				(path "/0a72828e-eca6-41a0-8710-f2485a2519a6"
 					(reference "R5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:FerriteBead_Small")
+		(at 87.63 38.1 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "20c62213-b00c-4274-8d65-4603cf85e6ee")
+		(property "Reference" "FB1"
+			(at 91.948 18.796 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "FerriteBead_Small"
+			(at 91.948 21.336 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+			(at 87.63 39.878 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 87.63 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Ferrite bead, small symbol"
+			(at 87.63 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link" "https://kosmodrom.ua/filtr-induktivniy/blm21aj601sn1d.html"
+			(at 87.63 38.1 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPM" "BLM21AJ601SN1D"
+			(at 87.63 38.1 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "a190b948-c5d9-4247-9f13-b31e4740fa68")
+		)
+		(pin "1"
+			(uuid "9210787f-914e-4985-8a78-16b643da7d25")
+		)
+		(instances
+			(project ""
+				(path "/0a72828e-eca6-41a0-8710-f2485a2519a6"
+					(reference "FB1")
 					(unit 1)
 				)
 			)
@@ -8371,6 +9022,24 @@
 				(hide yes)
 			)
 		)
+		(property "Link 2" "https://www.rcscomponents.kiev.ua/product/rele-hf49fd-024-1h12t_71939.html"
+			(at 160.02 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPM" "HF49FD/024-1H12"
+			(at 160.02 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "4"
 			(uuid "0612b16d-07b8-4da2-8f9b-4e94c4263f17")
 		)
@@ -8419,7 +9088,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 			(at 116.84 110.49 0)
 			(effects
 				(font
@@ -8438,6 +9107,33 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 116.84 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link" "https://m-teh.com.ua/rezistor-smd-24.9k-0805-1/"
+			(at 116.84 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPM" "SMD 24.9K 0805 1%"
+			(at 116.84 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" ""
 			(at 116.84 110.49 0)
 			(effects
 				(font
@@ -8506,6 +9202,33 @@
 		)
 		(property "Description" "Resistor, small symbol"
 			(at 102.87 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link" "https://kosmodrom.ua/smd-rezistor-2513/smd-rezistor-0603-120-om-5.html"
+			(at 102.87 167.64 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPM" "RC0603JR-07120RL"
+			(at 102.87 167.64 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" ""
+			(at 102.87 167.64 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8646,6 +9369,33 @@
 				(hide yes)
 			)
 		)
+		(property "Link" "https://www.rcscomponents.kiev.ua/product/210-kohm-1-0-125w-150v-0805-rc0805fr-210k-hitano-rezystor-smd_1913.html"
+			(at 172.72 104.14 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPM" "RC0805FR-210K-Hitano"
+			(at 172.72 104.14 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" ""
+			(at 172.72 104.14 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "a51983eb-7910-4e74-b7f9-d0523f4147eb")
 		)
@@ -8733,6 +9483,15 @@
 				(hide yes)
 			)
 		)
+		(property "Link 2" ""
+			(at 247.65 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "18edde6e-ebe2-4171-9914-3aa181080b20")
 		)
@@ -8750,7 +9509,7 @@
 	)
 	(symbol
 		(lib_id "Transistor_Array:ULN2003A")
-		(at 110.49 50.8 0)
+		(at 113.03 50.8 0)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8760,7 +9519,7 @@
 		(fields_autoplaced yes)
 		(uuid "381ae6be-4b24-4bd8-b27c-19ccf12fe413")
 		(property "Reference" "U2"
-			(at 110.49 68.58 0)
+			(at 113.03 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8768,7 +9527,7 @@
 			)
 		)
 		(property "Value" "ULN2003A"
-			(at 110.49 66.04 0)
+			(at 113.03 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8776,7 +9535,7 @@
 			)
 		)
 		(property "Footprint" "Package_SO:SOIC-16_3.9x9.9mm_P1.27mm"
-			(at 111.76 36.83 0)
+			(at 114.3 36.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8786,7 +9545,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/uln2003a.pdf"
-			(at 113.03 45.72 0)
+			(at 115.57 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8795,7 +9554,7 @@
 			)
 		)
 		(property "Description" "High Voltage, High Current Darlington Transistor Arrays, SOIC16/SOIC16W/DIP16/TSSOP16"
-			(at 110.49 50.8 0)
+			(at 113.03 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8804,7 +9563,7 @@
 			)
 		)
 		(property "Link" "https://kosmodrom.ua/tranzistor-darlington/uln2003adr.html"
-			(at 110.49 50.8 0)
+			(at 113.03 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8813,7 +9572,16 @@
 			)
 		)
 		(property "MPM" "ULN2003ADR"
-			(at 110.49 50.8 0)
+			(at 113.03 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" ""
+			(at 113.03 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8880,7 +9648,7 @@
 	)
 	(symbol
 		(lib_id "Diode:BZX384xxxx")
-		(at 53.34 107.95 270)
+		(at 44.45 107.95 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8888,7 +9656,7 @@
 		(dnp no)
 		(uuid "392ecf17-969d-4ab0-9762-35245dcf33b5")
 		(property "Reference" "D3"
-			(at 50.8 109.2201 90)
+			(at 41.91 109.2201 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8897,7 +9665,7 @@
 			)
 		)
 		(property "Value" "BZX384-B10"
-			(at 50.8 106.6801 90)
+			(at 41.91 106.6801 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8906,7 +9674,7 @@
 			)
 		)
 		(property "Footprint" "Diode_SMD:D_SOD-323"
-			(at 48.895 107.95 0)
+			(at 40.005 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8915,7 +9683,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/85764/bzx384.pdf"
-			(at 53.34 107.95 0)
+			(at 44.45 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8924,7 +9692,7 @@
 			)
 		)
 		(property "Description" "300mW Zener Diode, SOD-323"
-			(at 53.34 107.95 0)
+			(at 44.45 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8933,7 +9701,7 @@
 			)
 		)
 		(property "Link" "https://kosmodrom.ua/stabilitron-2/bzx384-b10-115.html"
-			(at 53.34 107.95 90)
+			(at 44.45 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8942,7 +9710,16 @@
 			)
 		)
 		(property "MPM" "BZX384-B10.115"
-			(at 53.34 107.95 90)
+			(at 44.45 107.95 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" ""
+			(at 44.45 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9029,6 +9806,15 @@
 			)
 		)
 		(property "MPM" "2EDGR-5.08-05P-14-00AH"
+			(at 181.61 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" ""
 			(at 181.61 50.8 0)
 			(effects
 				(font
@@ -9179,6 +9965,33 @@
 				(hide yes)
 			)
 		)
+		(property "Link" "https://kosmodrom.ua/smd-rezistor-2513/smd-rezistor-0603-2-kom-1-tochni.html"
+			(at 41.91 160.02 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPM" "RC0603FR-072KL"
+			(at 41.91 160.02 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" ""
+			(at 41.91 160.02 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "b16ec33b-0127-41f0-a431-52e0d6a78f4f")
 		)
@@ -9261,6 +10074,24 @@
 		)
 		(property "Link" "https://kosmodrom.ua/rele-elektromehanichne/hf49fd-024-1h12.html"
 			(at 171.704 13.208 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" "https://www.rcscomponents.kiev.ua/product/rele-hf49fd-024-1h12t_71939.html"
+			(at 160.02 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPM" "HF49FD/024-1H12"
+			(at 160.02 36.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9474,6 +10305,33 @@
 				(hide yes)
 			)
 		)
+		(property "Link" "https://kosmodrom.ua/smd-kondensator-1813/c1608c0g2e151j080aa-2.html"
+			(at 162.56 116.84 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPM" "C1608C0G2E151J080AA"
+			(at 162.56 116.84 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" ""
+			(at 162.56 116.84 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "89a1ee83-43db-4193-9ac9-6bbd3d396c2d")
 		)
@@ -9562,6 +10420,15 @@
 				(hide yes)
 			)
 		)
+		(property "Link 2" ""
+			(at 177.8 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "980c6fb8-9fdb-42f2-8d9e-7e71a58771e2")
 		)
@@ -9572,6 +10439,156 @@
 			(project "relay_expander"
 				(path "/0a72828e-eca6-41a0-8710-f2485a2519a6"
 					(reference "C2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 191.77 102.87 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "50abce40-7820-48e4-a5a6-813d8965bc2e")
+		(property "Reference" "#PWR028"
+			(at 191.77 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 192.024 107.442 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 191.77 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 191.77 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 191.77 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a9ae46a7-c437-4f94-86b2-ab82fcee603b")
+		)
+		(instances
+			(project "relay_expander"
+				(path "/0a72828e-eca6-41a0-8710-f2485a2519a6"
+					(reference "#PWR028")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:FerriteBead_Small")
+		(at 91.44 35.56 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "53034cf6-cb4f-462f-b520-f4a9c9190b41")
+		(property "Reference" "FB2"
+			(at 95.758 16.256 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "FerriteBead_Small"
+			(at 95.758 18.796 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+			(at 91.44 37.338 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 91.44 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Ferrite bead, small symbol"
+			(at 91.44 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link" "https://kosmodrom.ua/filtr-induktivniy/blm21aj601sn1d.html"
+			(at 91.44 35.56 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPM" "BLM21AJ601SN1D"
+			(at 91.44 35.56 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "a0294b68-b5eb-41f4-a505-a61241c461ee")
+		)
+		(pin "1"
+			(uuid "0a581a33-c21e-4792-afe6-c45a1bd684cb")
+		)
+		(instances
+			(project "relay_expander"
+				(path "/0a72828e-eca6-41a0-8710-f2485a2519a6"
+					(reference "FB2")
 					(unit 1)
 				)
 			)
@@ -9710,6 +10727,15 @@
 			)
 		)
 		(property "MPM" "STM32G030F6P6TR"
+			(at 59.69 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" ""
 			(at 59.69 45.72 0)
 			(effects
 				(font
@@ -9906,6 +10932,15 @@
 				(hide yes)
 			)
 		)
+		(property "Link 2" ""
+			(at 90.17 175.26 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "7e9e410f-cc94-426c-9d91-f578f8c842da")
 		)
@@ -9923,7 +10958,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 110.49 35.56 0)
+		(at 113.03 35.56 0)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9933,7 +10968,7 @@
 		(fields_autoplaced yes)
 		(uuid "5f2af998-fc02-4b17-b85f-bf84f0a74ad0")
 		(property "Reference" "#PWR05"
-			(at 110.49 29.21 0)
+			(at 113.03 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9942,7 +10977,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 110.49 30.48 0)
+			(at 113.03 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9950,7 +10985,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 110.49 35.56 0)
+			(at 113.03 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9959,7 +10994,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 110.49 35.56 0)
+			(at 113.03 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9968,7 +11003,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 110.49 35.56 0)
+			(at 113.03 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10057,17 +11092,16 @@
 	)
 	(symbol
 		(lib_id "power:+24V")
-		(at 120.65 60.96 270)
+		(at 123.19 60.96 270)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "634ee3ac-4e2f-4f1c-9441-a3425801f26d")
 		(property "Reference" "#PWR03"
-			(at 116.84 60.96 0)
+			(at 119.38 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10076,7 +11110,7 @@
 			)
 		)
 		(property "Value" "+24V"
-			(at 124.46 60.9601 90)
+			(at 122.428 62.992 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10085,7 +11119,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 120.65 60.96 0)
+			(at 123.19 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10094,7 +11128,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 120.65 60.96 0)
+			(at 123.19 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10103,7 +11137,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+24V\""
-			(at 120.65 60.96 0)
+			(at 123.19 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10196,6 +11230,15 @@
 				(hide yes)
 			)
 		)
+		(property "Link 2" ""
+			(at 246.38 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "5de6338e-d86e-4d9d-9b73-0ff2d1a598c2")
 		)
@@ -10271,6 +11314,15 @@
 				(hide yes)
 			)
 		)
+		(property "Link 2" ""
+			(at 102.87 175.26 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "1ac337ce-e115-47c1-9928-50b049ce557f")
 		)
@@ -10288,7 +11340,7 @@
 	)
 	(symbol
 		(lib_id "power:+24V")
-		(at 76.2 91.44 270)
+		(at 67.31 91.44 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10297,7 +11349,7 @@
 		(fields_autoplaced yes)
 		(uuid "6a05c777-e1b5-4dde-afc2-fcfaac39114c")
 		(property "Reference" "#PWR027"
-			(at 72.39 91.44 0)
+			(at 63.5 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10306,7 +11358,7 @@
 			)
 		)
 		(property "Value" "+24V"
-			(at 80.01 91.4399 90)
+			(at 71.12 91.4399 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10315,7 +11367,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 76.2 91.44 0)
+			(at 67.31 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10324,7 +11376,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 76.2 91.44 0)
+			(at 67.31 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10333,7 +11385,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+24V\""
-			(at 76.2 91.44 0)
+			(at 67.31 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10400,6 +11452,15 @@
 		)
 		(property "Description" "Jumper, 2-pole, small symbol, open"
 			(at 82.55 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" ""
+			(at 82.55 175.26 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10474,6 +11535,33 @@
 				(hide yes)
 			)
 		)
+		(property "Link" "https://kosmodrom.ua/smd-rezistor-2513/smd-rezistor-0603-1-kom-1-tochni.html"
+			(at 52.07 160.02 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPM" "RC0603FR-071KL"
+			(at 52.07 160.02 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" ""
+			(at 52.07 160.02 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "4c1da3a0-ed06-4e11-a570-e32e29a7f956")
 		)
@@ -10490,32 +11578,32 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:Conn_01x02_Socket")
-		(at 26.67 93.98 180)
+		(lib_id "Device:R_Small")
+		(at 191.77 90.17 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "7695a952-1b95-4363-a9f0-91ed32910c96")
-		(property "Reference" "J4"
-			(at 27.305 86.36 0)
+		(uuid "75d551d4-dd4c-4989-9ce7-a285e9fc0d18")
+		(property "Reference" "R13"
+			(at 189.992 90.17 90)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "560"
+			(at 193.802 90.17 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "2EDGR-5.08-02P"
-			(at 27.305 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "GMP_library:2EDGR-5.08-02P"
-			(at 26.67 93.98 0)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+			(at 191.77 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10524,7 +11612,101 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 26.67 93.98 0)
+			(at 191.77 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 191.77 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link" "https://www.rcscomponents.kiev.ua/product/560-ohm-5-0-1w-50v-0603-rc03k3561jt-kome-rezystor-smd_4507.html"
+			(at 191.77 90.17 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPM" "RC03K3561JT-KOME"
+			(at 191.77 90.17 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" ""
+			(at 191.77 90.17 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "cecfa130-82d3-4675-80fe-05af9de6183f")
+		)
+		(pin "1"
+			(uuid "c869a973-2b25-4417-8c8e-9649adf10e6b")
+		)
+		(instances
+			(project "relay_expander"
+				(path "/0a72828e-eca6-41a0-8710-f2485a2519a6"
+					(reference "R13")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x02_Socket")
+		(at 22.86 93.98 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "7695a952-1b95-4363-a9f0-91ed32910c96")
+		(property "Reference" "J4"
+			(at 23.495 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "2EDGR-5.08-02P"
+			(at 23.495 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "GMP_library:2EDGR-5.08-02P"
+			(at 22.86 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 22.86 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10533,7 +11715,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x02, script generated"
-			(at 26.67 93.98 0)
+			(at 22.86 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10542,7 +11724,7 @@
 			)
 		)
 		(property "Link" "https://kosmodrom.ua/klemnik/2edgr-5-08-02p-14-00ah.html"
-			(at 26.67 93.98 0)
+			(at 22.86 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10551,7 +11733,16 @@
 			)
 		)
 		(property "MPM" "2EDGR-5.08-02P-14-00AH"
-			(at 26.67 93.98 0)
+			(at 22.86 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" ""
+			(at 22.86 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10569,6 +11760,103 @@
 			(project "relay_expander"
 				(path "/0a72828e-eca6-41a0-8710-f2485a2519a6"
 					(reference "J4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:LED")
+		(at 191.77 96.52 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "76c72931-7c36-4046-b958-2649bdee18ce")
+		(property "Reference" "D5"
+			(at 195.58 96.8374 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "LED"
+			(at 195.58 99.3774 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
+			(at 191.77 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 191.77 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Light emitting diode"
+			(at 191.77 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 191.77 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link" "https://www.rcscomponents.kiev.ua/product/svitlodiod-1206-zelenyi-kt-smd1206-g-kento_86412.html"
+			(at 191.77 96.52 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPM" "KT-SMD1206-G"
+			(at 191.77 96.52 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "92866d25-63a5-4155-a7b5-b74ca8066f7a")
+		)
+		(pin "2"
+			(uuid "3882055a-ec83-4a96-bad5-ccefe0de2bc8")
+		)
+		(instances
+			(project ""
+				(path "/0a72828e-eca6-41a0-8710-f2485a2519a6"
+					(reference "D5")
 					(unit 1)
 				)
 			)
@@ -10711,6 +11999,15 @@
 				(hide yes)
 			)
 		)
+		(property "Link 2" ""
+			(at 130.81 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "72ef6d10-e799-433f-a30d-df83b7255ce2")
 		)
@@ -10795,7 +12092,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 189.23 83.82 270)
+		(at 210.82 83.82 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10804,7 +12101,7 @@
 		(fields_autoplaced yes)
 		(uuid "8bb35801-2fe3-4581-999a-94c7417949cf")
 		(property "Reference" "#PWR07"
-			(at 185.42 83.82 0)
+			(at 207.01 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10813,7 +12110,7 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 193.04 83.8199 90)
+			(at 214.63 83.8199 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10822,7 +12119,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 189.23 83.82 0)
+			(at 210.82 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10831,7 +12128,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 189.23 83.82 0)
+			(at 210.82 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10840,7 +12137,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 189.23 83.82 0)
+			(at 210.82 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11133,6 +12430,24 @@
 				(hide yes)
 			)
 		)
+		(property "Link 2" "https://www.rcscomponents.kiev.ua/product/rele-hf49fd-024-1h12t_71939.html"
+			(at 160.02 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPM" "HF49FD/024-1H12"
+			(at 160.02 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "4"
 			(uuid "a7187cc9-3f76-4374-a476-a52675c94286")
 		)
@@ -11221,6 +12536,24 @@
 		)
 		(property "Link" "https://kosmodrom.ua/rele-elektromehanichne/hf49fd-024-1h12.html"
 			(at 171.704 28.448 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" "https://www.rcscomponents.kiev.ua/product/rele-hf49fd-024-1h12t_71939.html"
+			(at 160.02 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPM" "HF49FD/024-1H12"
+			(at 160.02 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11323,6 +12656,24 @@
 				(hide yes)
 			)
 		)
+		(property "Link 2" "https://www.rcscomponents.kiev.ua/product/rele-hf49fd-024-1h12t_71939.html"
+			(at 160.02 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPM" "HF49FD/024-1H12"
+			(at 160.02 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "4"
 			(uuid "23b1d50d-c7cb-4b34-a079-52e676e351fe")
 		)
@@ -11408,6 +12759,15 @@
 			)
 		)
 		(property "MPM" "CL10B104JA8NNNC"
+			(at 231.14 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" ""
 			(at 231.14 105.41 0)
 			(effects
 				(font
@@ -11572,6 +12932,15 @@
 				(hide yes)
 			)
 		)
+		(property "Link 2" ""
+			(at 67.31 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "4"
 			(uuid "122adc52-2d0d-4d7a-b68d-209f658e6baa")
 		)
@@ -11606,8 +12975,105 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C_Small")
+		(at 64.77 101.6 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b4766cb0-c148-4c17-844a-a6f24a1ae2c1")
+		(property "Reference" "C9"
+			(at 67.31 100.3362 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "220uF"
+			(at 67.31 102.8762 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:CP_Elec_8x10.5"
+			(at 64.77 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 64.77 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 64.77 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link" ""
+			(at 64.77 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPM" "CS1V221M-CRF10"
+			(at 64.77 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" ""
+			(at 64.77 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "ee584839-42b9-427e-9012-dde928bc55bc")
+		)
+		(pin "1"
+			(uuid "059b15d8-44fe-4e9b-bfaf-12fc0efd2103")
+		)
+		(instances
+			(project "relay_expander"
+				(path "/0a72828e-eca6-41a0-8710-f2485a2519a6"
+					(reference "C9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Simulation_SPICE:PMOS")
-		(at 63.5 93.98 270)
+		(at 52.07 93.98 270)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -11617,7 +13083,7 @@
 		(fields_autoplaced yes)
 		(uuid "b87520a3-33ec-4f18-8048-269049ae4f0c")
 		(property "Reference" "Q1"
-			(at 63.5 85.09 90)
+			(at 52.07 85.09 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11625,7 +13091,7 @@
 			)
 		)
 		(property "Value" "AO3401A"
-			(at 63.5 87.63 90)
+			(at 52.07 87.63 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11633,7 +13099,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-3"
-			(at 66.04 88.9 0)
+			(at 54.61 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11642,7 +13108,7 @@
 			)
 		)
 		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#cha_MOSFETs"
-			(at 50.8 93.98 0)
+			(at 39.37 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11651,7 +13117,7 @@
 			)
 		)
 		(property "Description" "P-MOSFET transistor, drain/source/gate"
-			(at 63.5 93.98 0)
+			(at 52.07 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11660,7 +13126,7 @@
 			)
 		)
 		(property "Sim.Device" "PMOS"
-			(at 46.355 93.98 0)
+			(at 34.925 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11669,7 +13135,7 @@
 			)
 		)
 		(property "Sim.Type" "VDMOS"
-			(at 44.45 93.98 0)
+			(at 33.02 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11678,7 +13144,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=D 2=G 3=S"
-			(at 48.26 93.98 0)
+			(at 36.83 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11687,7 +13153,7 @@
 			)
 		)
 		(property "Link" "https://kosmodrom.ua/tranzistor-poloviy-mosfet/ao3401a.html"
-			(at 63.5 93.98 90)
+			(at 52.07 93.98 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11696,7 +13162,16 @@
 			)
 		)
 		(property "MPM" "AO3401A"
-			(at 63.5 93.98 90)
+			(at 52.07 93.98 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" ""
+			(at 52.07 93.98 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11790,7 +13265,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 182.88 116.84 90)
+		(at 209.55 116.84 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11798,7 +13273,7 @@
 		(dnp no)
 		(uuid "bc0b89c2-2506-4b4e-a4e5-cc5d3d7062a1")
 		(property "Reference" "#PWR011"
-			(at 189.23 116.84 0)
+			(at 215.9 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11807,7 +13282,7 @@
 			)
 		)
 		(property "Value" "GND_A"
-			(at 188.976 116.84 90)
+			(at 215.646 116.84 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11815,7 +13290,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 182.88 116.84 0)
+			(at 209.55 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11824,7 +13299,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 182.88 116.84 0)
+			(at 209.55 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11833,7 +13308,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 182.88 116.84 0)
+			(at 209.55 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11855,7 +13330,7 @@
 	)
 	(symbol
 		(lib_id "Device:Fuse_Small")
-		(at 46.99 91.44 0)
+		(at 36.83 91.44 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11864,7 +13339,7 @@
 		(fields_autoplaced yes)
 		(uuid "bc19e311-e12c-42d4-aeb5-75a06165727e")
 		(property "Reference" "F1"
-			(at 46.99 86.36 0)
+			(at 36.83 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11872,7 +13347,7 @@
 			)
 		)
 		(property "Value" "1A"
-			(at 46.99 88.9 0)
+			(at 36.83 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11880,7 +13355,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_THT:R_Axial_DIN0414_L11.9mm_D4.5mm_P15.24mm_Horizontal"
-			(at 46.99 91.44 0)
+			(at 36.83 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11889,7 +13364,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 46.99 91.44 0)
+			(at 36.83 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11898,7 +13373,7 @@
 			)
 		)
 		(property "Description" "Fuse, small symbol"
-			(at 46.99 91.44 0)
+			(at 36.83 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11907,7 +13382,7 @@
 			)
 		)
 		(property "Link" "https://kosmodrom.ua/zapobizhnik-plavkiy/fuse-1a-250v-3x10.html"
-			(at 46.99 91.44 0)
+			(at 36.83 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11916,7 +13391,16 @@
 			)
 		)
 		(property "MPM" "FUSE 1A 250V 3X10"
-			(at 46.99 91.44 0)
+			(at 36.83 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" ""
+			(at 36.83 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12077,6 +13561,15 @@
 				(hide yes)
 			)
 		)
+		(property "Link 2" ""
+			(at 181.61 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "60b43b81-fdf8-4a96-b527-bbfde8adf457")
 		)
@@ -12143,6 +13636,33 @@
 		)
 		(property "Description" "Resistor, small symbol"
 			(at 172.72 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link" "https://kosmodrom.ua/smd-rezistor-2513/smd-rezistor-0603-100-kom-1-tochni.html"
+			(at 172.72 116.84 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPM" "RC0603FR-07100KL"
+			(at 172.72 116.84 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" ""
+			(at 172.72 116.84 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12229,6 +13749,15 @@
 			)
 		)
 		(property "MPM" "MP1584EN"
+			(at 140.97 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" ""
 			(at 140.97 104.14 0)
 			(effects
 				(font
@@ -12408,6 +13937,15 @@
 				(hide yes)
 			)
 		)
+		(property "Link 2" ""
+			(at 166.37 83.82 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "7714f744-4933-4339-b219-8d595640e6d0")
 		)
@@ -12468,6 +14006,33 @@
 		)
 		(property "Description" "Resistor, small symbol"
 			(at 172.72 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link" "https://www.rcscomponents.kiev.ua/product/40-2-kohm-1-0-1w-50v-0603-rc0603fr-40k2r-hitano-rezystor-smd_27837.html"
+			(at 172.72 110.49 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPM" "RC0603FR-40K2R-Hitano"
+			(at 172.72 110.49 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" ""
+			(at 172.72 110.49 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12564,6 +14129,24 @@
 				(hide yes)
 			)
 		)
+		(property "Link 2" "https://www.rcscomponents.kiev.ua/product/rele-hf49fd-024-1h12t_71939.html"
+			(at 160.02 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPM" "HF49FD/024-1H12"
+			(at 160.02 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "4"
 			(uuid "900052ba-0ebd-4cac-8c69-0c429746d1d0")
 		)
@@ -12587,7 +14170,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 53.34 96.52 0)
+		(at 44.45 96.52 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -12595,7 +14178,7 @@
 		(dnp no)
 		(uuid "ee9470c0-735f-4c4f-a48e-7813c02cf8a4")
 		(property "Reference" "R12"
-			(at 48.768 95.758 0)
+			(at 39.878 95.758 0)
 			(effects
 				(font
 					(size 1.016 1.016)
@@ -12604,7 +14187,7 @@
 			)
 		)
 		(property "Value" "100kOhm"
-			(at 43.434 97.79 0)
+			(at 34.544 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12613,7 +14196,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 53.34 96.52 0)
+			(at 44.45 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12622,7 +14205,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 53.34 96.52 0)
+			(at 44.45 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12631,7 +14214,34 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 53.34 96.52 0)
+			(at 44.45 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link" "https://kosmodrom.ua/smd-rezistor-2513/smd-rezistor-0603-100-kom-1-tochni.html"
+			(at 44.45 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPM" "RC0603FR-07100KL"
+			(at 44.45 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" ""
+			(at 44.45 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12784,7 +14394,16 @@
 				(hide yes)
 			)
 		)
-		(property "MPM" "CL10A106MP8NNNC"
+		(property "MPM" "CL31B106KBHNNNE"
+			(at 227.33 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" ""
 			(at 227.33 80.01 0)
 			(effects
 				(font
@@ -12880,6 +14499,15 @@
 				(hide yes)
 			)
 		)
+		(property "Link 2" ""
+			(at 118.11 175.26 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "965d71d9-661c-4cf0-af80-754a21aa72ce")
 		)
@@ -12943,6 +14571,33 @@
 		)
 		(property "Description" "Resistor, small symbol"
 			(at 90.17 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link" "https://www.rcscomponents.kiev.ua/product/560-ohm-5-0-1w-50v-0603-rc03k3561jt-kome-rezystor-smd_4507.html"
+			(at 90.17 167.64 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPM" "RC03K3561JT-KOME"
+			(at 90.17 167.64 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" ""
+			(at 90.17 167.64 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13035,6 +14690,15 @@
 				(hide yes)
 			)
 		)
+		(property "Link 2" ""
+			(at 166.37 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "56c431de-cb2c-4dab-b544-7e2ec68d5a1c")
 		)
@@ -13112,6 +14776,15 @@
 			)
 		)
 		(property "MPM" "CL31B106KBHNNNE"
+			(at 106.68 97.79 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link 2" ""
 			(at 106.68 97.79 90)
 			(effects
 				(font
